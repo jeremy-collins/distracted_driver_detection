@@ -1,5 +1,7 @@
-# Inattentive Driver Detection
+# Distracted Driver Detection
 Jeremy Collins, Alan Hesu, Kin Man Lee, Shruthi Saravanan, Dhrumin Shah
+
+
 ## Introduction
 <p>
   Distracted driving causes about 920,000 total accidents in the US per year according to the National Highway Transportation and Safety Administration (NHTSA) [1]. Experts in the fields of traffic safety and public health all concur that this is an underestimation of the dangers of distracted driving. 
