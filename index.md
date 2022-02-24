@@ -6,6 +6,8 @@ Jeremy Collins, Alan Hesu, Kin Man Lee, Shruthi Saravanan, Dhrumin Shah
   
   
   Prior work in this field includes a data augmentation method for distracted driving detection based on extracting relevant driving operation areas in the image as a preprocessing step using an R-CNN model [2]. The findings from this paper demonstrate the importance of doing operation area extraction in the preprocessing step, which can efficiently reduce redundant information in images and improve classification accuracy. An additional report in this field includes a distracted driving identification algorithm based on deep CNNs (Rao et al., 2021). This approach coupled PCA with a multi-layer CNN to further improve performance. 
+
+  
   In this project, we will use the State Farm Distracted Driver Detection dataset [3] to classify normal driving, texting, phone conversation, radio operation, drinking, reaching back, doing hair and makeup, and talking to passengers.
 </p>
   
@@ -13,17 +15,24 @@ Jeremy Collins, Alan Hesu, Kin Man Lee, Shruthi Saravanan, Dhrumin Shah
 <p>
   70% of fatal crashes are caused by unsafe driving behavior. Our project aims to preemptively identify such driving behavior in order to help prevent fatal accidents and adjust a driver’s habits. 
 </p>
+
 ## Methods
 <p>
   For our supervised learning method, we plan on implementing a convolutional neural network to classify the driver images as depicting normal driving or distracted driving. We chose to use a CNN because of their ability to efficiently extract visual features with higher accuracy than other types of neural networks. We will also be exploring traditional supervised learning methods such as support vector machines and decision trees.
+
+  
   We plan on exploring several unsupervised learning methods to classify images via clustering. These methods may include k-means, GMM, PCA, or DBSCAN. 
  
 </p>
+
 ## Potential Results
 <p>
   For unsupervised clustering methods, we hope to see clusters for each of the defined classes given in the dataset. Since there are 10 classes, the expected amount of clusters should be the same. For resulting clusters that do not match the ground truth labels, we will perform some exploratory analysis to look for other possible similarities that define the clusters. When the number of clusters is limited to two, we expect the model to correlate with the binary classification of normal driving vs. distracted driving.
+
+  
   For supervised methods, the models we use should be able to accurately classify an unlabeled image to one of the ten classes. Based on prior work in this area, we expect to see around 60-80% accuracy [4] with traditional methods depending on what is used. For a CNN, we expect to see accuracy of 85%+, possibly reaching 95%+ [5] if we find a CNN architecture that works well for our particular use case.  
 </p>
+
 ## Proposed Timeline
 The anticipated timeline involves dividing the team in two to work on supervised and unsupervised models in parallel so that the performance of each can be compared and analyzed. A proposed Gantt chart can be viewed <a href="GanttChart - Spring.pdf" target="_blank">here.</a>
 ## References
@@ -35,4 +44,5 @@ The anticipated timeline involves dividing the team in two to work on supervised
 [5] M. H. Alkinani, W. Z. Khan and Q. Arshad, "Detecting Human Driver Inattentive and Aggressive Driving Behavior Using Deep Learning: Recent Advances, Requirements and Open Challenges," in IEEE Access, vol. 8, pp. 105008-105030, 2020, doi: 10.1109/ACCESS.2020.2999829.
 
 </p>
+
 ## Video 
