@@ -3,6 +3,8 @@ Jeremy Collins, Alan Hesu, Kin Man Lee, Shruthi Saravanan, Dhrumin Shah
 ## Introduction
 <p>
   Distracted driving causes about 920,000 total accidents in the US per year according to the National Highway Transportation and Safety Administration (NHTSA) [1]. Experts in the fields of traffic safety and public health all concur that this is an underestimation of the dangers of distracted driving. 
+  
+  
   Prior work in this field includes a data augmentation method for distracted driving detection based on extracting relevant driving operation areas in the image as a preprocessing step using an R-CNN model [2]. The findings from this paper demonstrate the importance of doing operation area extraction in the preprocessing step, which can efficiently reduce redundant information in images and improve classification accuracy. An additional report in this field includes a distracted driving identification algorithm based on deep CNNs (Rao et al., 2021). This approach coupled PCA with a multi-layer CNN to further improve performance. 
   In this project, we will use the State Farm Distracted Driver Detection dataset [3] to classify normal driving, texting, phone conversation, radio operation, drinking, reaching back, doing hair and makeup, and talking to passengers.
 </p>
