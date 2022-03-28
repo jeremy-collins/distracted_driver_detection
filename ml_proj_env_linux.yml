@@ -1,0 +1,11 @@
+name: ml_proj
+channels:
+  - defaults
+dependencies:
+  - python=3.8.10
+  - pandas
+  - matplotlib
+  - torchvision
+  - scikit-learn
+  - notebook
+  - nb_conda_kernels
