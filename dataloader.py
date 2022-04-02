@@ -18,7 +18,8 @@ class DriverDataset(Dataset):
         self.df = pd.read_csv('../driver_imgs_list.csv')
 
         # shuffle the dataframe
-        self.df = self.df.sample(frac=1)
+        if (shuffle):
+            self.df = self.df.sample(frac=1)
 
         self.people = self.df['subject']
         self.classes = self.df['classname']
