@@ -6,7 +6,9 @@ from skimage import io, transform
 import matplotlib.pyplot as plt
 from torch.utils.data import Dataset, DataLoader
 import torchvision
+import torchvision.transforms as transforms
 from PIL import Image, ImageOps, ImageFilter
+from typing import Sequence, Tuple
 
 # data is in /media/jer/data2/state-farm-distracted-driver-detection/imgs
 # columns of csv are person[0], class name[1], and image name[2]
@@ -14,8 +16,11 @@ from PIL import Image, ImageOps, ImageFilter
 class DriverDataset(Dataset):
     def __init__(self, shuffle=True):
         # CHANGE TO YOUR DIRECTORY
-        self.img_dir = '../imgs/train/combined'
-        self.df = pd.read_csv('../driver_imgs_list.csv')
+        # self.img_dir = '../imgs/train/combined'
+        self.img_dir = '/media/jer/data2/state-farm-distracted-driver-detection/imgs/train/combined/'
+        # self.df = pd.read_csv('../driver_imgs_list.csv')
+        self.df = pd.read_csv('/media/jer/data2/state-farm-distracted-driver-detection/driver_imgs_list.csv')
+
 
         # shuffle the dataframe
         if (shuffle):
@@ -56,7 +61,14 @@ class DriverDataset(Dataset):
         for index, random_index in enumerate(batch_indices):
             # print(data[2][random_index])
             img = Image.open(os.path.join(self.img_dir, data[2][random_index]))
+            
             img = img.resize((new_width, new_height))
+            img = self.augment(img, brightness=0.5, contrast=0.5, saturation=0.5, hue=0.5, flip=True, crop=True, angle=10)
+            
+            # plt.imshow(img)
+            # plt.show()
+
+            
             if (gray):
                 img = ImageOps.grayscale(img)
 
@@ -66,21 +78,85 @@ class DriverDataset(Dataset):
             people[index] = int(data[0][random_index][1:])
             labels[index] = int(data[1][random_index][1:])
         return batch, people, labels
+    
+    def k_folds(self, X, y, kfold):
+        
+        x_split = np.split(X, kfold, axis=0)
+        y_split = np.split(y, kfold, axis=0)
+
+        # for i in range(kfold):
+        #     x_tuple = x_split[:i] + x_split[(i+1):]
+        #     y_tuple = y_split[:i] + y_split[(i+1):]
+                                       
+        #     x_curr = np.concatenate(x_tuple)
+        #     y_curr = np.concatenate(y_tuple)
+
+        #     weight = self.ridge_fit_closed(x_curr, y_curr, c_lambda)
+        #     prediction = self.predict(x_split[i], weight)
+        #     errors[i] = self.rmse(prediction, y_split[i])
+            
+        return x_split, y_split
+    
+    def augment(
+        self,
+        image,
+        brightness=0,
+        contrast=0,
+        saturation=0,
+        hue=0,
+        flip=False,
+        crop=False,
+        angle=0,
+        normalize=False,
+        mean=None,
+        std=None):
+        
+        transform = transforms.Compose(
+        [
+            # transforms.Resize(size),
+            transforms.ToTensor(),
+            transforms.ColorJitter(brightness=brightness, contrast=contrast, saturation=saturation, hue=hue),
+            transforms.RandomRotation(angle),
+        ]
+        )
+        
+        image = transform(image)
+        
+        if flip:
+            image = transforms.RandomHorizontalFlip()(image)
+        
+        if crop:
+            # would need to increase image resolution before cropping
+            image = transforms.RandomCrop((48, 64))(image)
+            
+        if normalize:
+            image = transforms.Normalize(mean, std)
+            
+        image = transforms.ToPILImage()(image)
+            
+        return image        
+    
 
 if __name__ == "__main__":
     dataset = DriverDataset()
     # splitting dataset right before p061 starts (80%)... couldn't find labels for their test set
     train_data, test_data = dataset.split_dataset(17777)
-    training_batch, train_people, train_labels = dataset.make_batch(train_data, 10)
+    training_batch, train_people, train_labels = dataset.make_batch(train_data, 10, gray=False, edges=False)
+    testing_batch, test_people, test_labels = dataset.make_batch(test_data, 10, gray=False, edges=False)
+      
+    x_split, y_split = dataset.k_folds(training_batch, testing_batch, 5)
+    # (person, class, image_name)
+    print("x split: ", len(x_split))
+    print(x_split[0].shape)
+    print("y split: ", len(y_split))
+    print(y_split[0].shape)
+    
 
     for img in training_batch:
+        print(type(img))
         plt.imshow(img)
         plt.show()
 
     # print(dataset[17777])
     # dataset.show_image(17777)
     # plt.show()
-
-    ''' TODO:
-    - cross validation - split training into training and validation
-    '''
