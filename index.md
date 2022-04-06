@@ -24,63 +24,66 @@ Jeremy Collins, Alan Hesu, Kin Man Lee, Shruthi Saravanan, Dhrumin Shah
 |Accuracy|0.89|0.89|
 |Precision|0.89|0.89|
 |Recall|0.89|0.89|
-|F1|0.89|0.89|
-
-<figure>
-  <img src="{{{site.url}}/docs/assets/img_95830.png" alt=""/>
-  <figcaption>subject 016, c0</figcaption>
-</figure>
-
-<p align="center">
-  <img alt="img-name" src="docs/assets/img_95830.png" width="300">
+|F1|0.89|0.89|<p align="middle">
+  <img alt="img-name" src="docs/assets/img_95830.png" width="400">
   <br>
-    <em>subject 016, c0</em>
+    <em>subject 016, Safe driving</em>
 </p>
 
-<figure>
-  <img src="{/{{site.url}}/docs/assets/img_60231.png" alt=""/>
-  <figcaption>subject 052, c1</figcaption>
-</figure>
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_60231.png" width="400">
+  <br>
+    <em>subject 052, Texting - right</em>
+</p>
 
-<figure>
-  <img src="{/{{site.url}}/docs/assets/img_28156.png" alt=""/>
-  <figcaption>subject 026, c2</figcaption>
-</figure>
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_28156.png" width="400">
+  <br>
+    <em>subject 026, Talking on the phone - right </em>
+</p>
 
-<figure>
-  <img src="{/{{site.url}}/docs/assets/img_79948.png" alt=""/>
-  <figcaption>subject 015, c3</figcaption>
-</figure>
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_79948.png" width="400">
+  <br>
+    <em>subject 015, Texting - left</em>
+</p>
 
-<figure>
-  <img src="{/{{site.url}}/docs/assets/img_7466.png" alt=""/>
-  <figcaption>subject 024, c4</figcaption>
-</figure>
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_7466.png" width="400">
+  <br>
+    <em>subject 024, Talking on the phone - right</em>
+</p>
 
-<figure>
-  <img src="{/{{site.url}}/docs/assets/img_91055.png" alt=""/>
-  <figcaption>subject 012, c5</figcaption>
-</figure>
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_91055.png" width="400">
+  <br>
+    <em>subject 012, Operating the radio</em>
+</p>
 
-<figure>
-  <img src="{/{{site.url}}/docs/assets/img_19400.png" alt=""/>
-  <figcaption>subject 042, c6</figcaption>
-</figure>
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_19400.png" width="400">
+  <br>
+    <em>subject 042, Drinking</em>
+</p>
 
-<figure>
-  <img src="{/{{site.url}}/docs/assets/img_43019.png" alt=""/>
-  <figcaption>subject 035, c7</figcaption>
-</figure>
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_43019.png" width="400">
+  <br>
+    <em>subject 035, Reaching behind</em>
+</p>
 
-<figure>
-  <img src="{/{{site.url}}/docs/assets/img_41546.png" alt=""/>
-  <figcaption>subject 052, c8</figcaption>
-</figure>
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_41546.png" width="400">
+  <br>
+    <em>subject 052, Hair and makeup</em>
+</p>
 
-<figure>
-  <img src="{/{{site.url}}/docs/assets/img_47403.png" alt=""/>
-  <figcaption>subject 022, c9</figcaption>
-</figure>
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_47403.png" width="400">
+  <br>
+    <em>subject 022, Talking to passenger</em>
+</p>
+
 
 
 ## Potential Results
