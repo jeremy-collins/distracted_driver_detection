@@ -23,7 +23,7 @@ subject 016, Safe driving     |  subject 052, Texting - right      |    subject 
 
 <img alt="img-name" src="docs/assets/img_7466.png" width="300"> | <img alt="img-name" src="docs/assets/img_91055.png" width="300"> | <img alt="img-name" src="docs/assets/img_19400.png" width="300"> | <img alt="img-name" src="docs/assets/img_43019.png" width="300">
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-subject 024, Talking on the phone - right      |    subject 012, Operating the radio  |  subject 042, Drinking   |   subject 035, Reaching behind
+subject 024, Talking on the phone - left      |    subject 012, Operating the radio  |  subject 042, Drinking   |   subject 035, Reaching behind
 
 
 <img alt="img-name" src="docs/assets/img_41546.png" width="300">  |  <img alt="img-name" src="docs/assets/img_47403.png" width="300">
