@@ -52,7 +52,7 @@ A transformed set of features was then fit using the training data. For testing,
 #### K-means
 A K-means model was used as an unsupervised clustering method. For a given number of clusters k, a model was fit using the training data. Then, each cluster was associated with one of the ten ground truth labels by giving the cluster the same label as the highest occurring category in that cluster. Thus, an arbitrary number of k clusters can be used to classify images as one of the ten actual labels. Once fit, the model can be used to classify images in the testing set. To select an optimal number of clusters, an elbow plot was generated, plotting the model accuracy against the number of clusters and selecting a k value at the “elbow” of the curve.
 
-![](/distracted_driver_detection/docs/assets/kmeans_elbow_variance.png)
+![](/distracted_driver_detection/docs/assets/kmeans_elbow_shuffle.png)
 
 ### Supervised Methods
 #### Support Vector Machines
@@ -130,12 +130,15 @@ Training data:
 ![](/distracted_driver_detection/docs/assets/svm_train_shuffled.jpg)
 
 Train Accuracy (Polynomial Kernel):  99.99
+
 Train F1 (Polynomial Kernel):  99.99
 
 Test set:
 
 ![](/distracted_driver_detection/docs/assets/svm_test_shuffled.jpg)
+
 Test Accuracy (Polynomial Kernel):  99.91
+
 Test F1 (Polynomial Kernel):  99.91
 
 While the results are very good in the case of shuffled data, the unshuffled data suffers the same performance problems as k-means.
@@ -147,13 +150,17 @@ Training data:
 
 
 ![](/distracted_driver_detection/docs/assets/svm_train_unshuffled.jpg)
+
 Train Accuracy (Polynomial Kernel):  99.99
+
 Train F1 (Polynomial Kernel):  99.99
 
 Test set:
 
 ![](/distracted_driver_detection/docs/assets/svm_test_unshuffled.jpg)
+
 Test Accuracy (Polynomial Kernel):  13.56
+
 Test F1 (Polynomial Kernel):  7.53
 
 The training accuracy is still very good, but the test accuracy is no better than random guessing. This indicates that the model still has problems generalizing to new subjects. 
