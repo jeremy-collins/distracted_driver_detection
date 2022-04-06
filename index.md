@@ -24,7 +24,9 @@ Jeremy Collins, Alan Hesu, Kin Man Lee, Shruthi Saravanan, Dhrumin Shah
 |Accuracy|0.89|0.89|
 |Precision|0.89|0.89|
 |Recall|0.89|0.89|
-|F1|0.89|0.89|<p align="middle">
+|F1|0.89|0.89|
+
+<p align="middle">
   <img alt="img-name" src="docs/assets/img_95830.png" width="400">
   <br>
     <em>subject 016, Safe driving</em>
