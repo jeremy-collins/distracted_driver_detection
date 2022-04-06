@@ -17,62 +17,22 @@ In order to avoid limitations imposed by the size of our dataset and improve gen
 Examples of images in the dataset and the class they belong to are shown below: 
 
 
-<p align="middle">
-  <img alt="img-name" src="docs/assets/img_95830.png" width="400">
-  <br>
-    <em>subject 016, Safe driving</em>
-</p>
+![](/distracted_driver_detection/docs/assets/img_95830.png)  |  ![](/distracted_driver_detection/docs/assets/img_60231.png) | ![](/distracted_driver_detection/docs/assets/img_28156.png)
+:-------------------------:|:-------------------------:|:-------------------------:
+subject 016, Safe driving     |  subject 052, Texting - right      |    subject 026, Talking on the phone - right
+
+
+![](/distracted_driver_detection/docs/assets/img_79948.png)  |  ![](/distracted_driver_detection/docs/assets/img_7466.png) | ![](/distracted_driver_detection/docs/assets/img_91055.png)
+:-------------------------:|:-------------------------:|:-------------------------:
+subject 015, Texting - left     |  subject 024, Talking on the phone - right      |    subject 012, Operating the radio
+
+![](/distracted_driver_detection/docs/assets/img_19400.png)  |  ![](/distracted_driver_detection/docs/assets/img_43019.png) | ![](/distracted_driver_detection/docs/assets/img_41546.png)
+:-------------------------:|:-------------------------:|:-------------------------:
+subject 042, Drinking    |  subject 035, Reaching behind     |    subject 052, Hair and makeup
+
 
 <p align="middle">
-  <img alt="img-name" src="docs/assets/img_60231.png" width="400">
-  <br>
-    <em>subject 052, Texting - right</em>
-</p>
-
-<p align="middle">
-  <img alt="img-name" src="docs/assets/img_28156.png" width="400">
-  <br>
-    <em>subject 026, Talking on the phone - right </em>
-</p>
-
-<p align="middle">
-  <img alt="img-name" src="docs/assets/img_79948.png" width="400">
-  <br>
-    <em>subject 015, Texting - left</em>
-</p>
-
-<p align="middle">
-  <img alt="img-name" src="docs/assets/img_7466.png" width="400">
-  <br>
-    <em>subject 024, Talking on the phone - right</em>
-</p>
-
-<p align="middle">
-  <img alt="img-name" src="docs/assets/img_91055.png" width="400">
-  <br>
-    <em>subject 012, Operating the radio</em>
-</p>
-
-<p align="middle">
-  <img alt="img-name" src="docs/assets/img_19400.png" width="400">
-  <br>
-    <em>subject 042, Drinking</em>
-</p>
-
-<p align="middle">
-  <img alt="img-name" src="docs/assets/img_43019.png" width="400">
-  <br>
-    <em>subject 035, Reaching behind</em>
-</p>
-
-<p align="middle">
-  <img alt="img-name" src="docs/assets/img_41546.png" width="400">
-  <br>
-    <em>subject 052, Hair and makeup</em>
-</p>
-
-<p align="middle">
-  <img alt="img-name" src="docs/assets/img_47403.png" width="400">
+  <img alt="img-name" src="docs/assets/img_47403.png">
   <br>
     <em>subject 022, Talking to passenger</em>
 </p>
