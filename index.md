@@ -17,7 +17,65 @@ Jeremy Collins, Alan Hesu, Kin Man Lee, Shruthi Saravanan, Dhrumin Shah
 
   
   We plan on exploring several unsupervised learning methods to classify images via clustering. These methods may include k-means, GMM, PCA, or DBSCAN.  
- 
+  
+  | ![img](/distracted_driver_detection/docs/assets/pca_explained_variance.png) | ![](/distracted_driver_detection/docs/assets/pca_explained_variance.png) | 
+  
+||Training|Testing|
+|Accuracy|0.89|0.89|
+|Precision|0.89|0.89|
+|Recall|0.89|0.89|
+|F1|0.89|0.89|
+
+<figure>
+  <img src="{/distracted_driver_detection/docs/assets/img_95830.png" alt=""/>
+  <figcaption>subject 016, c0</figcaption>
+</figure>
+
+<figure>
+  <img src="{/distracted_driver_detection/docs/assets/img_60231.png" alt=""/>
+  <figcaption>subject 052, c1</figcaption>
+</figure>
+
+<figure>
+  <img src="{/distracted_driver_detection/docs/assets/img_28156.png" alt=""/>
+  <figcaption>subject 026, c2</figcaption>
+</figure>
+
+<figure>
+  <img src="{/distracted_driver_detection/docs/assets/img_79948.png" alt=""/>
+  <figcaption>subject 015, c3</figcaption>
+</figure>
+
+<figure>
+  <img src="{/distracted_driver_detection/docs/assets/img_7466.png" alt=""/>
+  <figcaption>subject 024, c4</figcaption>
+</figure>
+
+<figure>
+  <img src="{/distracted_driver_detection/docs/assets/img_91055.png" alt=""/>
+  <figcaption>subject 012, c5</figcaption>
+</figure>
+
+<figure>
+  <img src="{/distracted_driver_detection/docs/assets/img_19400.png" alt=""/>
+  <figcaption>subject 042, c6</figcaption>
+</figure>
+
+<figure>
+  <img src="{/distracted_driver_detection/docs/assets/img_43019.png" alt=""/>
+  <figcaption>subject 035, c7</figcaption>
+</figure>
+
+<figure>
+  <img src="{/distracted_driver_detection/docs/assets/img_41546.png" alt=""/>
+  <figcaption>subject 052, c8</figcaption>
+</figure>
+
+<figure>
+  <img src="{/distracted_driver_detection/docs/assets/img_47403.png" alt=""/>
+  <figcaption>subject 022, c9</figcaption>
+</figure>
+
 
 ## Potential Results
   For unsupervised clustering methods, we hope to see clusters for each of the defined classes given in the dataset. Since there are 10 classes, the expected amount of clusters should be the same. For resulting clusters that do not match the ground truth labels, we will perform some exploratory analysis to look for other possible similarities that define the clusters. When the number of clusters is limited to two, we expect the model to correlate with the binary classification of normal driving vs. distracted driving.  
