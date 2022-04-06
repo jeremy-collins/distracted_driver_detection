@@ -31,6 +31,12 @@ Jeremy Collins, Alan Hesu, Kin Man Lee, Shruthi Saravanan, Dhrumin Shah
   <figcaption>subject 016, c0</figcaption>
 </figure>
 
+<p align="center">
+  <img alt="img-name" src="docs/assets/img_95830.png">
+  <br>
+    <em>caption</em>
+</p>
+
 <figure>
   <img src="{/{{site.url}}/docs/assets/img_60231.png" alt=""/>
   <figcaption>subject 052, c1</figcaption>
