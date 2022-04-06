@@ -17,7 +17,76 @@ Jeremy Collins, Alan Hesu, Kin Man Lee, Shruthi Saravanan, Dhrumin Shah
 
   
   We plan on exploring several unsupervised learning methods to classify images via clustering. These methods may include k-means, GMM, PCA, or DBSCAN.  
- 
+  
+  | ![img](/distracted_driver_detection/docs/assets/pca_explained_variance.png) | ![](/distracted_driver_detection/docs/assets/pca_explained_variance.png) | 
+  
+||Training|Testing|
+|Accuracy|0.89|0.89|
+|Precision|0.89|0.89|
+|Recall|0.89|0.89|
+|F1|0.89|0.89|
+
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_95830.png" width="400">
+  <br>
+    <em>subject 016, Safe driving</em>
+</p>
+
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_60231.png" width="400">
+  <br>
+    <em>subject 052, Texting - right</em>
+</p>
+
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_28156.png" width="400">
+  <br>
+    <em>subject 026, Talking on the phone - right </em>
+</p>
+
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_79948.png" width="400">
+  <br>
+    <em>subject 015, Texting - left</em>
+</p>
+
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_7466.png" width="400">
+  <br>
+    <em>subject 024, Talking on the phone - right</em>
+</p>
+
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_91055.png" width="400">
+  <br>
+    <em>subject 012, Operating the radio</em>
+</p>
+
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_19400.png" width="400">
+  <br>
+    <em>subject 042, Drinking</em>
+</p>
+
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_43019.png" width="400">
+  <br>
+    <em>subject 035, Reaching behind</em>
+</p>
+
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_41546.png" width="400">
+  <br>
+    <em>subject 052, Hair and makeup</em>
+</p>
+
+<p align="middle">
+  <img alt="img-name" src="docs/assets/img_47403.png" width="400">
+  <br>
+    <em>subject 022, Talking to passenger</em>
+</p>
+
+
 
 ## Potential Results
   For unsupervised clustering methods, we hope to see clusters for each of the defined classes given in the dataset. Since there are 10 classes, the expected amount of clusters should be the same. For resulting clusters that do not match the ground truth labels, we will perform some exploratory analysis to look for other possible similarities that define the clusters. When the number of clusters is limited to two, we expect the model to correlate with the binary classification of normal driving vs. distracted driving.  
