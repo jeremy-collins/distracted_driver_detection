@@ -12,7 +12,7 @@ In this project, we will use the State Farm Distracted Driver Detection dataset 
 ## Data Collection
 We chose to use the State Farm Distracted Driver Detection dataset, a collection of 22424 images of drivers operating a vehicle [4]. Because labels were only provided for the training data, we split the training portion of the dataset into a new training set (80%) and test set (20%). An option was also included to shuffle the dataset before splitting, determining whether the test set will contain unseen individuals. To access items in the dataset, we grouped each image along with the ground truth label and person ID obtained from a csv file.
 
-In order to avoid limitations imposed by the size of our dataset and improve generalizability, we chose to augment the data in several ways. Transformations included resizing, color jitter, rotation, random cropping, and normalization. All images were converted to grayscale and and edge detection was performed in order to provide more contrast.
+In order to avoid limitations imposed by the size of our dataset and improve generalizability, we chose to augment the data in several ways. Transformations included resizing, color jitter, rotation, random cropping, and normalization. All images were converted to grayscale to reduce the memory usage and to remove color information from the data. An edge detection filter was also applied, as the edges of each subject, and thus their pose and position, would provide the most relevant information.
 
 Examples of images in the dataset and the class they belong to are shown below: 
 
