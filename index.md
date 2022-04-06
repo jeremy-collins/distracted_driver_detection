@@ -27,52 +27,52 @@ Jeremy Collins, Alan Hesu, Kin Man Lee, Shruthi Saravanan, Dhrumin Shah
 |F1|0.89|0.89|
 
 <figure>
-  <img src="{/distracted_driver_detection/docs/assets/img_95830.png" alt=""/>
+  <img src="{{{site.url}}/docs/assets/img_95830.png" alt=""/>
   <figcaption>subject 016, c0</figcaption>
 </figure>
 
 <figure>
-  <img src="{/distracted_driver_detection/docs/assets/img_60231.png" alt=""/>
+  <img src="{/{{site.url}}/docs/assets/img_60231.png" alt=""/>
   <figcaption>subject 052, c1</figcaption>
 </figure>
 
 <figure>
-  <img src="{/distracted_driver_detection/docs/assets/img_28156.png" alt=""/>
+  <img src="{/{{site.url}}/docs/assets/img_28156.png" alt=""/>
   <figcaption>subject 026, c2</figcaption>
 </figure>
 
 <figure>
-  <img src="{/distracted_driver_detection/docs/assets/img_79948.png" alt=""/>
+  <img src="{/{{site.url}}/docs/assets/img_79948.png" alt=""/>
   <figcaption>subject 015, c3</figcaption>
 </figure>
 
 <figure>
-  <img src="{/distracted_driver_detection/docs/assets/img_7466.png" alt=""/>
+  <img src="{/{{site.url}}/docs/assets/img_7466.png" alt=""/>
   <figcaption>subject 024, c4</figcaption>
 </figure>
 
 <figure>
-  <img src="{/distracted_driver_detection/docs/assets/img_91055.png" alt=""/>
+  <img src="{/{{site.url}}/docs/assets/img_91055.png" alt=""/>
   <figcaption>subject 012, c5</figcaption>
 </figure>
 
 <figure>
-  <img src="{/distracted_driver_detection/docs/assets/img_19400.png" alt=""/>
+  <img src="{/{{site.url}}/docs/assets/img_19400.png" alt=""/>
   <figcaption>subject 042, c6</figcaption>
 </figure>
 
 <figure>
-  <img src="{/distracted_driver_detection/docs/assets/img_43019.png" alt=""/>
+  <img src="{/{{site.url}}/docs/assets/img_43019.png" alt=""/>
   <figcaption>subject 035, c7</figcaption>
 </figure>
 
 <figure>
-  <img src="{/distracted_driver_detection/docs/assets/img_41546.png" alt=""/>
+  <img src="{/{{site.url}}/docs/assets/img_41546.png" alt=""/>
   <figcaption>subject 052, c8</figcaption>
 </figure>
 
 <figure>
-  <img src="{/distracted_driver_detection/docs/assets/img_47403.png" alt=""/>
+  <img src="{/{{site.url}}/docs/assets/img_47403.png" alt=""/>
   <figcaption>subject 022, c9</figcaption>
 </figure>
 
