@@ -18,7 +18,7 @@ Jeremy Collins, Alan Hesu, Kin Man Lee, Shruthi Saravanan, Dhrumin Shah
   
   We plan on exploring several unsupervised learning methods to classify images via clustering. These methods may include k-means, GMM, PCA, or DBSCAN.  
   
-  | ![img](/distracted_driver_detection/docs/assets/pca_explained_variance.png) | ![img](/distracted_driver_detection/docs/assets/pca_explained_variance.png) | 
+  | ![img](/distracted_driver_detection/docs/assets/pca_explained_variance.png) | ![](/distracted_driver_detection/docs/assets/pca_explained_variance.png) | 
 
 
 ## Potential Results
