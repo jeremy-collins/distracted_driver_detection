@@ -18,6 +18,8 @@ Jeremy Collins, Alan Hesu, Kin Man Lee, Shruthi Saravanan, Dhrumin Shah
   
   We plan on exploring several unsupervised learning methods to classify images via clustering. These methods may include k-means, GMM, PCA, or DBSCAN.  
  
+  ![](/distracted_driver_detection/assets/pca_explained_variance.png)
+
 
 ## Potential Results
   For unsupervised clustering methods, we hope to see clusters for each of the defined classes given in the dataset. Since there are 10 classes, the expected amount of clusters should be the same. For resulting clusters that do not match the ground truth labels, we will perform some exploratory analysis to look for other possible similarities that define the clusters. When the number of clusters is limited to two, we expect the model to correlate with the binary classification of normal driving vs. distracted driving.  
