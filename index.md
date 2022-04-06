@@ -16,15 +16,21 @@ In order to avoid limitations imposed by the size of our dataset and improve gen
 
 Examples of images in the dataset and the class they belong to are shown below: 
 
-<img alt="img-name" src="docs/assets/img_95830.png" width="300"> |  <img alt="img-name" src="docs/assets/img_60231.png" width="300"> | <img alt="img-name" src="docs/assets/img_28156.png" width="300">  |    <img alt="img-name" src="docs/assets/img_79948.png" width="300">
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-subject 016, Safe driving     |  subject 052, Texting - right      |    subject 026, Talking on the phone - right   |    subject 015, Texting - left
+<img alt="img-name" src="docs/assets/img_95830.png" width="300"> |  <img alt="img-name" src="docs/assets/img_60231.png" width="300">
+:-------------------------:|:-------------------------:|
+subject 016, Safe driving     |  subject 052, Texting - right    
 
+<img alt="img-name" src="docs/assets/img_28156.png" width="300">  |    <img alt="img-name" src="docs/assets/img_79948.png" width="300">
+:-------------------------:|:-------------------------:
+subject 026, Talking on the phone - right   |    subject 015, Texting - left
 
-<img alt="img-name" src="docs/assets/img_7466.png" width="300"> | <img alt="img-name" src="docs/assets/img_91055.png" width="300"> | <img alt="img-name" src="docs/assets/img_19400.png" width="300"> | <img alt="img-name" src="docs/assets/img_43019.png" width="300">
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-subject 024, Talking on the phone - left      |    subject 012, Operating the radio  |  subject 042, Drinking   |   subject 035, Reaching behind
+<img alt="img-name" src="docs/assets/img_7466.png" width="300"> | <img alt="img-name" src="docs/assets/img_91055.png" width="300">
+:-------------------------:|:-------------------------:|
+subject 024, Talking on the phone - left      |    subject 012, Operating the radio  
 
+<img alt="img-name" src="docs/assets/img_19400.png" width="300"> | <img alt="img-name" src="docs/assets/img_43019.png" width="300">
+:-------------------------:|:-------------------------:
+subject 042, Drinking   |   subject 035, Reaching behind
 
 <img alt="img-name" src="docs/assets/img_41546.png" width="300">  |  <img alt="img-name" src="docs/assets/img_47403.png" width="300">
 :-------------------------:|:-------------------------:|
