@@ -1,0 +1,21 @@
+name: ml_proj2
+channels:
+  - defaults
+dependencies:
+  - statsmodels
+  - tqdm
+  - pytorch
+  - pandas
+  - imageio
+  - scikit-learn
+  - matplotlib
+  - pip
+  - ipywidgets
+  - scipy
+  - jupyterlab
+  - numpy
+  - notebook
+  - scikit-image
+  - tensorflow
+  - keras
+prefix: C:\Users\Alan Hesu\miniconda3\envs\ml_proj

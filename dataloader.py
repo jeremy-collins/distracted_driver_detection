@@ -31,8 +31,8 @@ class DriverDataset(Dataset):
         self.img_names = self.df['img']
         self.num_samples = self.img_names.shape[0]
 
-        self.width = 96
-        self.height = 72
+        self.width = 64
+        self.height = 48
 
     def __getitem__(self, index):
         return self.people[index], self.classes[index], self.img_names[index]
@@ -53,9 +53,9 @@ class DriverDataset(Dataset):
         new_width = self.width
         new_height = self.height
         if (gray):
-            batch = np.zeros((n, new_height, new_width), dtype='uint8')
+            batch = np.zeros((n, new_height, new_width), dtype='float')
         else:
-            batch = np.zeros((n, new_height, new_width, 3), dtype='uint8')
+            batch = np.zeros((n, new_height, new_width, 3), dtype='float')
         labels = np.empty((n), dtype='int')
         people = np.empty((n), dtype='int')
         # picking n random rows of the dataset
@@ -66,7 +66,8 @@ class DriverDataset(Dataset):
             img = Image.open(os.path.join(self.img_dir, data[2][random_index]))
 
             img = img.resize((new_width, new_height))
-            img = self.augment(img, brightness=0.5, contrast=0.5, saturation=0.5, hue=0.5, flip=False, crop=True, angle=10)
+            # img = self.augment(img, brightness=0.5, contrast=0.5, saturation=0.5, hue=0.5, flip=False, crop=True, angle=10, normalize=False)
+            img = self.augment(img, normalize=True)
 
             # plt.imshow(img)
             # plt.show()
@@ -77,9 +78,13 @@ class DriverDataset(Dataset):
 
             if (gray and edges):
                 img = img.filter(ImageFilter.FIND_EDGES)
-            batch[index] = np.asarray(img)
+            batch[index] = np.moveaxis(np.asarray(transforms.ToTensor()(img)), [0,1,2], [2,0,1])
             people[index] = int(data[0][random_index][1:])
             labels[index] = int(data[1][random_index][1:])
+
+            # plt.imshow(batch[index])
+            # plt.show()
+
         return batch, people, labels
 
     def k_folds(self, X, y, kfold):
@@ -134,7 +139,10 @@ class DriverDataset(Dataset):
             image = transforms.RandomCrop((self.height, self.width))(image)
 
         if normalize:
-            image = transforms.Normalize(mean, std)
+            ind1 = image.dim() - 2
+            ind2 = image.dim() - 1
+            # image = transforms.Normalize(image.mean(dim=[ind1,ind2]), image.std(dim=[ind1,ind2]))(image)
+            image = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))(image)
 
         image = transforms.ToPILImage()(image)
 
