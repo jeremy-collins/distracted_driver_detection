@@ -23,6 +23,7 @@ class MyResNet18(nn.Module):
         ############################################################################
 
         model = resnet18(pretrained=True)
+        # model = torch.hub.load('pytorch/vision:v0.10.0', 'resnext50_32x4d', pretrained=True)
         
         # print(list(model.children()))
         
@@ -31,8 +32,8 @@ class MyResNet18(nn.Module):
             )
         
         self.fc_layers = nn.Sequential(
-            # nn.Linear(in_features=512, out_features=15, bias=True)
             nn.Linear(512, 100),
+            # nn.Linear(2048, 100),
             nn.ReLU(),
             nn.Linear(100, 10)  
         )
@@ -65,6 +66,7 @@ class MyResNet18(nn.Module):
         # print("network output 1: ", o.size())
         
         model_output = self.fc_layers(o.reshape(-1, 512))
+        # model_output = self.fc_layers(o.reshape(-1, 2048))
         
         # print("network output 2: ", model_output.size())
 

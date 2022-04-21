@@ -36,8 +36,14 @@ class ImageLoader(data.Dataset):
         # CHANGE TO YOUR DIRECTORY
         # self.img_dir = '../imgs/train/combined'
         self.img_dir = '/media/jer/data2/state-farm-distracted-driver-detection/imgs/train/combined/'
+
         # self.df = pd.read_csv('../driver_imgs_list.csv')
         self.df = pd.read_csv('/media/jer/data2/state-farm-distracted-driver-detection/driver_imgs_list.csv')
+
+        # # colab dirs
+        # self.img_dir = './combined/'
+        # self.df = pd.read_csv('./driver_imgs_list.csv')
+
         
         self.root = os.path.expanduser(root_dir)
         self.transform = transform

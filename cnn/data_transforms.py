@@ -67,7 +67,8 @@ def get_fundamental_augmentation_transforms(
 
 
 def get_fundamental_normalization_transforms(
-    inp_size: Tuple[int, int]) -> transforms.Compose:
+    inp_size: Tuple[int, int], pixel_mean: Sequence[float], pixel_std: Sequence[float]
+) -> transforms.Compose:
     """Returns the core transforms necessary to feed the images to our model alomg with
     normalization.
 
@@ -88,7 +89,7 @@ def get_fundamental_normalization_transforms(
         [
             transforms.Resize(inp_size),
             transforms.ToTensor(),
-            # transforms.Normalize(pixel_mean, pixel_std),
+            transforms.Normalize(pixel_mean, pixel_std),
         ]
     )
 
@@ -99,7 +100,8 @@ def get_fundamental_normalization_transforms(
 
 
 def get_all_transforms(
-    inp_size: Tuple[int, int]) -> transforms.Compose:
+    inp_size: Tuple[int, int], pixel_mean: Sequence[float], pixel_std: Sequence[float]
+) -> transforms.Compose:
     """Returns the data augmentation + core transforms needed to be applied on the train set,
     along with normalization. This should just be your previous method + normalization.
     Suggestions: Jittering, Flipping, Cropping, Rotating.
@@ -124,7 +126,7 @@ def get_all_transforms(
         transforms.ColorJitter(),
         transforms.RandomCrop(inp_size),
         transforms.RandomRotation(5),
-        # transforms.Normalize(pixel_mean, pixel_std),
+        transforms.Normalize(pixel_mean, pixel_std),
     ]
     )
 

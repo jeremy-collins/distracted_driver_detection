@@ -36,8 +36,12 @@ def compute_mean_and_std(dir_name: str) -> Tuple[float, float]:
     # avg = 0
     # stdev = 0
     
+    img_size = (640, 480)
     dataset = np.array([], dtype="uint8")
     count = 0
+    sum = np.array([0], dtype="int64")
+    sq_sum = np.array([0], dtype="int64")
+    
     
     # for folder in folder_list:
     #     for img in os.listdir(os.path.join(dir_name, folder)):
@@ -47,16 +51,36 @@ def compute_mean_and_std(dir_name: str) -> Tuple[float, float]:
                 img_path = os.path.join(dirpath, img)
                 img = Image.open(img_path)
                 img = img.convert('L')
-                img = np.array(img)
-                dataset = np.append(dataset, img.reshape((-1,)))
+                img = np.array(img, dtype="uint8")
+                sum += np.sum(img)
+                sq_sum += np.sum(np.square(img))
+                # dataset = np.append(dataset, img.reshape((-1,)))
                 count += 1
+                
+                
+    print(count, " images processed")
 
-    mean = np.mean(dataset)/255
-    std = np.std(dataset)/255
+    count = count * img_size[0] * img_size[1] 
+    sum = sum / 255
+    sq_sum = sq_sum / 255
+                
+    mean = sum / count
+    var = (sq_sum / count) - (mean ** 2) 
+    print("var: ", var)
+    std = np.sqrt(var)          
+
+
+
+    # mean = np.mean(dataset)/255
+    # std = np.std(dataset)/255
     
-    print(mean, std)
-
+    # mean is 0.36668006
+    print("mean: ", mean)
+    
+    # std is 0.51483374
+    print("standard deviation: ", std)
+    
     ############################################################################
     # Student code end
     ############################################################################
-    return mean, std
+    return mean[0], std[0]
