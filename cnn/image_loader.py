@@ -35,14 +35,14 @@ class ImageLoader(data.Dataset):
         """
         # CHANGE TO YOUR DIRECTORY
         # self.img_dir = '../imgs/train/combined'
-        self.img_dir = '/media/jer/data2/state-farm-distracted-driver-detection/imgs/train/combined/'
+        # self.img_dir = '/media/jer/data2/state-farm-distracted-driver-detection/imgs/train/combined/'
 
         # self.df = pd.read_csv('../driver_imgs_list.csv')
-        self.df = pd.read_csv('/media/jer/data2/state-farm-distracted-driver-detection/driver_imgs_list.csv')
+        # self.df = pd.read_csv('/media/jer/data2/state-farm-distracted-driver-detection/driver_imgs_list.csv')
 
-        # # colab dirs
-        # self.img_dir = './combined/'
-        # self.df = pd.read_csv('./driver_imgs_list.csv')
+        # colab dirs
+        self.img_dir = './combined/'
+        self.df = pd.read_csv('./driver_imgs_list.csv')
 
         
         self.root = os.path.expanduser(root_dir)
@@ -151,6 +151,8 @@ class ImageLoader(data.Dataset):
         ############################################################################
 
         img = Image.open(path).convert('L')
+        width, height = img.size # (480, 640)
+        img = img.resize((width // 2, height // 2))
         
         ############################################################################
         # Student code end
