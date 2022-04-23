@@ -35,12 +35,13 @@ class MyResNet18(nn.Module):
             nn.Linear(512, 100),
             # nn.Linear(2048, 100),
             nn.ReLU(),
+            nn.Dropout(0.5),
             nn.Linear(100, 10)  
         )
         
         # freezing the layers of ResNet except the last one
-        for param in self.conv_layers.parameters():
-            param.requires_grad = False
+        # for param in self.conv_layers.parameters():
+        #     param.requires_grad = False
         
         ############################################################################
         # Student code end
