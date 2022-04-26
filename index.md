@@ -1,6 +1,5 @@
 # Distracted Driver Detection
 Jeremy Collins, Alan Hesu, Kin Man Lee, Shruthi Saravanan, Dhrumin Shah
-
 ## Introduction
 Distracted driving causes about 920,000 total accidents in the US per year according to the National Highway Transportation and Safety Administration (NHTSA) [1]. Experts in the fields of traffic safety and public health all concur that this is an underestimation of the dangers of distracted driving.
 
@@ -92,7 +91,7 @@ A similar phenomenon occurs when using the autoencoder, as it also poorly genera
 
 while an example of a reconstructed image when the data is not shuffle is shown here.
 
-![](/distracted_driver_detection/docs/assets/autoencoder_unshuffle.png)
+![](/distracted_driver_detection/docs/assets/autoencoder_unshufffle.png)
 
 As with using PCA, the reconstructed images on the test dataset look qualitatively worse; they are much more blurry, and details relevant to the action taken such as the driver’s arm position and face orientation are difficult to perceive. Accordingly, the poor performance of the autoencoder can be attributed to the same causes that result in the poor performance of using PCA. The autoencoder has likely overfit to the training data, which contains images that differ in respects such as the color, camera angle, and general body position of each subject.
 
@@ -116,7 +115,7 @@ Again, the confusion matrix demonstrates that the model generally captures every
  
 Notably, however, the confusion matrices illustrate a higher degree of misclassification occurring between pairs of labels, such as labels 3 and 4 in the matrix shown above. These two labels in particular correspond to “Texting - left” and “Talking on the phone - left”, which are compared below.
  
-<img alt="img-name" src="docs/assets/img_79948.png" width="300">  |    <img alt="img-name" src="docs/assets/img_7566.png" width="300">
+<img alt="img-name" src="docs/assets/img_79948.png" width="300">  |    <img alt="img-name" src="docs/assets/img_7466.png" width="300">
 :-------------------------:|:-------------------------:
 subject 026, Texting - left   |    subject 015, Talking on the phone - left
  
@@ -272,7 +271,7 @@ Test F1:  2.42
 ResNet-18 was first evaluated on the shuffled dataset, and a validation accuracy of 98.5% was achieved.
 
 
-![](/distracted_driver_detection/docs/assets/resnet18_loss_shuffle.jpg) ![](/distracted_driver_detection/docs/assets/resnet18_accuracy_shuffle.jpg)
+![](/distracted_driver_detection/docs/assets/resnet18_loss_shuffle.png) ![](/distracted_driver_detection/docs/assets/resnet18_accuracy_shuffle.png)
 
 <p align="center">
 ResNet-18
@@ -286,7 +285,7 @@ Train Accuracy = 99.6% | Validation Accuracy = 98.5%
 
  
 
-![](/distracted_driver_detection/docs/assets/resnet18_confusion_shuffle.jpg)
+![](/distracted_driver_detection/docs/assets/resnet18_confusion_shuffle.png)
 Confusion matrix for shuffled subjects
  
 The same model was then applied to the unshuffled dataset, with the convolutional layers frozen to decrease the computational intensity of backpropagation and decrease training time.
