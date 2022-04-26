@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from torchvision.models import resnet18
+from torchvision.models import resnet18, resnet152, efficientnet_b4
 
 
 class MyResNet18(nn.Module):
@@ -22,8 +22,9 @@ class MyResNet18(nn.Module):
         # Student code begin
         ############################################################################
 
-        model = resnet18(pretrained=True)
+        # model = resnet18(pretrained=True)
         # model = torch.hub.load('pytorch/vision:v0.10.0', 'resnext50_32x4d', pretrained=True)
+        model = efficientnet_b4( pretrained=True)
         
         # print(list(model.children()))
         
@@ -32,11 +33,17 @@ class MyResNet18(nn.Module):
             )
         
         self.fc_layers = nn.Sequential(
-            nn.Linear(512, 100),
+            # nn.Linear(512, 100),
             # nn.Linear(2048, 100),
+            nn.Linear(1792, 128),
+
+            # nn.ReLU(),
+            # nn.Dropout(0.5),
+            # nn.Linear(512, 128),
+
             nn.ReLU(),
             nn.Dropout(0.5),
-            nn.Linear(100, 10)  
+            nn.Linear(128, 10)
         )
         
         # freezing the layers of ResNet except the last one
@@ -57,7 +64,7 @@ class MyResNet18(nn.Module):
                 Note: we set num_classes=15
         """
         model_output = None
-        x = x.repeat(1, 3, 1, 1)  # as ResNet accepts 3-channel color images
+        # x = x.repeat(1, 3, 1, 1)  # as ResNet accepts 3-channel color images
         ############################################################################
         # Student code begin
         ############################################################################
@@ -66,9 +73,10 @@ class MyResNet18(nn.Module):
         
         # print("network output 1: ", o.size())
         
-        model_output = self.fc_layers(o.reshape(-1, 512))
+        # model_output = self.fc_layers(o.reshape(-1, 512))
         # model_output = self.fc_layers(o.reshape(-1, 2048))
-        
+        model_output = self.fc_layers(o.reshape(-1, 1792))
+
         # print("network output 2: ", model_output.size())
 
         ############################################################################

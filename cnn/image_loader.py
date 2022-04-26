@@ -150,7 +150,9 @@ class ImageLoader(data.Dataset):
         # Student code begin
         ############################################################################
 
-        img = Image.open(path).convert('L')
+        # img = Image.open(path).convert('L')
+        img = Image.open(path)
+
         width, height = img.size # (480, 640)
         img = img.resize((width // 2, height // 2))
         

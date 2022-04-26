@@ -49,7 +49,8 @@ class SimpleNetFinal(nn.Module):
         
         self.fc_layers = nn.Sequential(
             nn.Linear(256, 100),
-            nn.Linear(100, 15)  
+            nn.ReLU(),
+            nn.Linear(100, 10)  
         )       
         
         # self.loss_criterion = nn.CrossEntropyLoss(reduction='mean')

@@ -54,8 +54,8 @@ def get_fundamental_augmentation_transforms(
     [
         transforms.Resize(inp_size),
         transforms.ToTensor(),
-        transforms.RandomHorizontalFlip(),
-        transforms.ColorJitter(),
+        # transforms.RandomHorizontalFlip(),
+        transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.2),
         transforms.RandomCrop(inp_size),
         transforms.RandomRotation(5),
     ]
@@ -122,8 +122,8 @@ def get_all_transforms(
     [
         transforms.Resize(inp_size),
         transforms.ToTensor(),
-        transforms.RandomHorizontalFlip(),
-        transforms.ColorJitter(),
+        # transforms.RandomHorizontalFlip(),
+        transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.2),
         transforms.RandomCrop(inp_size),
         transforms.RandomRotation(5),
         transforms.Normalize(pixel_mean, pixel_std),
