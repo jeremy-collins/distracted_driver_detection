@@ -271,55 +271,110 @@ Test F1:  2.42
 ResNet-18 was first evaluated on the shuffled dataset, and a validation accuracy of 98.5% was achieved.
 
 
-![](/distracted_driver_detection/docs/assets/resnet18_loss_shuffle.png) ![](/distracted_driver_detection/docs/assets/resnet18_accuracy_shuffle.png)
+<p align="center">
+<img src="docs/assets/resnet18_loss_shuffle.png" width="300"> <img src="docs/assets/resnet18_accuracy_shuffle.png" width="300">
+</p>
 
 <p align="center">
-ResNet-18
- 
-Shuffled Subjects
- 
-LR = 5e-3 | Weight Decay = 0
- 
-Train Accuracy = 99.6% | Validation Accuracy = 98.5%
+<em>
+ResNet-18 <br>
+Shuffled Subjects <br>
+LR = 5e-3 | Weight Decay = 0 <br>
+Train Accuracy = 99.6% | Validation Accuracy = 98.5% <br>
+</em>
 </p>
 
  
 
-![](/distracted_driver_detection/docs/assets/resnet18_confusion_shuffle.png)
+<p align="center">
+<img src="docs/assets/resnet18_confusion_shuffle.png">
+</p>
+
+<p align="center">
+<em>
 Confusion matrix for shuffled subjects
+</em>
+</p>
  
 The same model was then applied to the unshuffled dataset, with the convolutional layers frozen to decrease the computational intensity of backpropagation and decrease training time.
 
+<p align="center">
+<img src="docs/assets/resnet18_loss_unshuffle.png" width="300"> <img src="docs/assets/resnet18_accuracy_unshuffle.png" width="300">
+</p>
+
+<p align="center">
+<em>
 ResNet-18, Frozen Convolutional Layers
 Unshuffled Subjects
 LR = 1e-3 | Weight Decay = 1e-4
 Train Accuracy = 76.7% | Validation Accuracy = 37.9%
+</em>
+</p>
  
 The convolutional layers were then unfrozen and a validation accuracy of 71.6% was achieved.
 
+<p align="center">
+<img src="docs/assets/resnet18_loss_unf_unshuffle.png" width="300"> <img src="docs/assets/resnet18_accuracy_unf_unshuffle.png" width="300">
+</p>
+
+<p align="center">
+<em>
 ResNet-18
 Unshuffled Subjects
 LR = 5e-4 | Weight Decay = 5e-2
 Train Accuracy = 99.7% | Validation Accuracy = 71.6%
+</em>
+</p>
  
  
  
+    Resnet-152, a version of ResNet with 152 layers instead of 18, was then tested to determine if the additional complexity provided by the extra layers is able to capture more information in the data.
 
+<p align="center">
+<img src="docs/assets/resnet152_loss.png" width="300"> <img src="docs/assets/resnet152_accuracy.png" width="300">
+</p>
+
+<p align="center">
+<em>
 ResNet-152
 Unshuffled Subjects
 LR = 1e-3 | Weight Decay = 5e-3
 Train Accuracy = 99.7% | Validation Accuracy = 74.0%
+</em>
+</p>
  
  
 
+<p align="center">
+<img src="docs/assets/resnet152_confusion.png">
+</p>
+
+<p align="center">
+<em>
 Confusion matrix for unshuffled subjects
+</em>
+</p>
+ 
  
 EfficientNet-B4, an architecture with state-of-the-art performance on image classification benchmarks such as ImageNet with only 19 million parameters, was chosen next, achieving a validation accuracy of 77.3%
 
+<p align="center">
+<img src="docs/assets/efnet_loss.png" width="300"> <img src="docs/assets/efnet_accuracy.png" width="300">
+</p>
+
+<p align="center">
+<em>
 EfficientNet-B4
 Unshuffled Subjects
 LR = 1e-2 | Weight Decay = 2.5e-3
 Train Accuracy = 98.9% | Validation Accuracy = 77.3%
+</em>
+</p>
+ 
+ 
+ 
+ 
+
  
 ## Conclusion
 This project aimed to develop machine learning models to identify distracted driving behavior. Such a tool could be used as part of a system that monitors drivers and preemptively warns them if they are being distracted, keeping their focus on the road and improving their safety. The dataset itself consisted of still images of a number of subjects performing one of ten actions while driving. One category included drivers focused on the road, while the other nine were considered distracted driving behaviors. A number of unsupervised and supervised methods were tested in an attempt to classify each image against one of the ten labels. Notably, splitting the dataset into training and testing involved a decision on whether or not to shuffle it beforehand. If it were shuffled, then the training and testing set would contain a mix of all of the subjects present in the dataset. Otherwise, the training and testing set would contain distinct subjects. Testing the models’ performance on this unshuffled dataset would be more informative, because it would demonstrate the model’s ability to generalize well for unknown subjects. Realistically, this would be required of a driver monitoring system, which would be trained on an existing dataset and then used on a newer, potentially more varied population in commercial use.
@@ -362,6 +417,7 @@ Binary classification (safe driving vs not safe driving)
 [5] D. Feng and Y. Yue, “Machine Learning Techniques for Distracted Driver Detection,” CS 229: Machine Learning, 2019. [Online]. Available: http://cs229.stanford.edu/proj2019spr/report/24.pdf. [Accessed: 23-Feb-2022].
 
 [6] M. H. Alkinani, W. Z. Khan and Q. Arshad, “Detecting Human Driver Inattentive and Aggressive Driving Behavior Using Deep Learning: Recent Advances, Requirements and Open Challenges,” in IEEE Access, vol. 8, pp. 105008-105030, 2020, doi: 10.1109/ACCESS.2020.2999829.
+
 
 
 
