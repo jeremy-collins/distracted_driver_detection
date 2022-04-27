@@ -66,7 +66,7 @@ For experiments with support vector machines, the unshuffled and shuffled datase
 
 Several architectures were implemented and evaluated in an attempt to classify the images. Our chosen architectures were ResNet, VGG16, EfficientNet-B4, and a custom CNN architecture. In order to prevent overfitting the data with such large models, several forms of regularization were used. The images were augmented by randomly changing the brightness, contrast, saturation, and hue of the image, and were randomly cropped and rotated. Additionally, a weight decay was introduced to punish the magnitude of the learned weights, and a dropout layer was added between the linear layers so that the model was not dependent on specific features, making it more robust and capable of generalization. 
 
-In terms of the design of the custom CNN model, we used 6 convolutional layers in total, with 1 max pooling layer and 1 GlobalAveragePooling layer in the middle. Total convolutional layers were extended from 8 to 512 filters. Before employing the fully connected layer, a dropout was utilized in conjunction with the Global average pooling layer. The amount of nodes in the final fully linked layer was set at ten, with the softmax activation algorithm enabled. All additional layers were activated using the ReLU function. To minimize dimensionality, a max pooling layer is applied. In addition to that, to reduce dimensionality and convert the matrix to a row vector, a Global Average Pooling layer was implemented. This is due to the fact that a completely linked layer can only receive row vectors. Dropout layers were integrated to prevent overfitting and to guarantee that it generalized properly. Finally, to derive prediction probabilities, the final fully connected layer featuring a softmax activation function was applied.
+For the custom CNN model, we used 6 convolutional layers in total, with 1 max-pooling layer and 1 GlobalAveragePooling layer in the middle. The total number of convolutional layers was extended from 8 to 512 filters. Before employing the fully connected layer, a dropout was utilized in conjunction with the Global average pooling layer. The number of nodes in the final fully linked layer was set at ten, with the softmax activation algorithm enabled. All additional layers were activated using the ReLU function. To minimize dimensionality, a max-pooling layer is applied. In addition to that, to reduce dimensionality and convert the matrix to a row vector, a Global Average Pooling layer was implemented. This is due to the fact that a completely linked layer can only receive row vectors. Dropout layers were integrated to prevent overfitting and to guarantee that it generalized properly. Finally, to derive prediction probabilities, the final fully connected layer featuring a softmax activation function was applied.
 
 In terms of the VGG16 model, we loaded it with its training weights but without the top fully connected layers. Then, on top of the GlobalAveragePooling layer, we added fully connected layers with dropout layers in between. Finally, on top of the model, we added three dense layers with dropout layers. 
 
@@ -279,8 +279,60 @@ Training F1:  2.17
 Test F1:  2.42
 #### Convolutional Neural Networks
 
+We first created a custom CNN architecture to classify the images.
 
-ResNet-18 [7] was first evaluated on the *shuffled* dataset, and a validation accuracy of 98.5% was achieved.
+
+
+The following are the final accuracy and loss values after training the custom CNN model:
+ 
+
+<p align="center">
+<img src="docs/assets/custom.png">
+</p>
+
+Loss value of training (epochs vs. value): 
+
+
+
+ 
+<p align="center">
+<img src="docs/assets/training.png">
+</p>
+
+Loss value of validation (epochs vs. value): 
+
+
+
+ 
+<p align="center">
+<img src="docs/assets/validation.png">
+</p>
+
+The following are the final accuracy and loss values after training the VGG16 model:
+
+
+<p align="center">
+<img src="docs/assets/vgg.png">
+</p>
+ 
+Loss value of training (epochs vs. value): 
+
+
+ 
+<p align="center">
+<img src="docs/assets/vgg_training.png">
+</p>
+
+Loss value of validation (epochs vs. value): 
+
+
+
+ 
+<p align="center">
+<img src="docs/assets/vgg_validation.png">
+</p>
+
+Comparing the custom model and VGG16 on the shuffled dataset shown above demonstrates the largely improved performance of modern CNN architectures. Next, ResNet-18 [7] was first evaluated on the *shuffled* dataset, and a validation accuracy of 98.5% was achieved.
 
 
 <p align="center">
@@ -406,58 +458,6 @@ Train Accuracy = 97.4% | Validation Accuracy = 63.6%  <br>
 </p>
  
 Although the overall accuracy of the binary image classifier is poor (64%), the true negative rate is very high (96%) and the false-negative rate is very low (4%), meaning that if a driver is driving unsafely, the model is very likely to detect it. So, the model may qualify as acceptable for driver safety applications, although users may be inconvenienced by the high false-positive rate.
- 
-The following are the final accuracy and loss values after training the custom CNN model:
- 
-
-<p align="center">
-<img src="docs/assets/custom.png">
-</p>
-
-Loss value of training (epochs vs. value): 
-
-
-
- 
-<p align="center">
-<img src="docs/assets/training.png">
-</p>
-
-Loss value of validation (epochs vs. value): 
-
-
-
- 
-<p align="center">
-<img src="docs/assets/validation.png">
-</p>
-
-The following are the final accuracy and loss values after training the VGG16 model:
-
-
-<p align="center">
-<img src="docs/assets/vgg.png">
-</p>
- 
-Loss value of training (epochs vs. value): 
-
-
- 
-<p align="center">
-<img src="docs/assets/vgg_training.png">
-</p>
-
-Loss value of validation (epochs vs. value): 
-
-
-
- 
-<p align="center">
-<img src="docs/assets/vgg_validation.png">
-</p>
- 
- 
- 
  
 ## Conclusion
 This project aimed to develop machine learning models to identify distracted driving behavior. Such a tool could be used as part of a system that monitors drivers and preemptively warns them if they are being distracted, keeping their focus on the road and improving their safety. The dataset itself consisted of still images of a number of subjects performing one of ten actions while driving. One category included drivers focused on the road, while the other nine were considered distracted driving behaviors. A number of unsupervised and supervised methods were tested in an attempt to classify each image against one of the ten labels. Notably, splitting the dataset into training and testing involved a decision on whether or not to shuffle it beforehand. If it were shuffled, then the training and testing set would contain a mix of all of the subjects present in the dataset. Otherwise, the training and testing set would contain distinct subjects. Testing the models’ performance on this unshuffled dataset would be more informative, because it would demonstrate the model’s ability to generalize well for unknown subjects. Realistically, this would be required of a driver monitoring system, which would be trained on an existing dataset and then used on a newer, potentially more varied population in commercial use.
