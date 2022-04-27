@@ -36,6 +36,7 @@ subject 042, Drinking   |   subject 035, Reaching behind
 subject 052, Hair and makeup  |   subject 022, Talking to passenger
 
 The following is a distribution of all of the classes of images found in the dataset:
+
 <img alt="img-name" src="docs/assets/imagedistribution.png" width="300">  
 
 
