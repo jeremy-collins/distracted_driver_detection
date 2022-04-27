@@ -156,7 +156,8 @@ Again, similar poor performance is seen when the autoencoder is used instead of 
  
 #### Support Vector Machines
 
-Linear
+**Linear**
+
 The linear SVM was set to solve for primal optimization for both shuffled and unshuffled data. Training takes around four minutes in our machine. Below is the confusion matrix, accuracy and F1 score for shuffled data:
 
 Training data:
@@ -202,7 +203,8 @@ Test F1 (Linear):  12.87
 The training accuracy is still very good, but the test accuracy is no better than random guessing. This indicates that the model still has problems generalizing to new subjects. We experimented with regularization by changing the C hyperparameter, but the results are similar.
 
 
-3rd Degree Polynomial
+**3rd Degree Polynomial**
+
 Training with the polynomial kernel takes about 20 minutes. No regularization was used. Below is the confusion matrix, accuracy and F1 score for shuffled data:
 
 Training data:
@@ -245,7 +247,8 @@ Test Accuracy (Polynomial Kernel):  13.56
 Test F1 (Polynomial Kernel):  7.53
 
 
-Radial Basis Function (RBF)
+**Radial Basis Function (RBF)**
+
 For the test with the RBF kernel, the SVM was ran with the following hyperparameters:
 
 
