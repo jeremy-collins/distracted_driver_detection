@@ -328,7 +328,7 @@ Train Accuracy = 99.7% | Validation Accuracy = 71.6%  <br>
  
  
  
-    Resnet-152, a version of ResNet with 152 layers instead of 18, was then tested to determine if the additional complexity provided by the extra layers is able to capture more information in the data.
+Resnet-152, a version of ResNet with 152 layers instead of 18, was then tested to determine if the additional complexity provided by the extra layers is able to capture more information in the data.
 
 <p align="center">
 <img src="docs/assets/resnet152_loss.png" width="300"> <img src="docs/assets/resnet152_accuracy.png" width="300">
