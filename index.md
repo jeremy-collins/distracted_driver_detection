@@ -307,10 +307,10 @@ The same model was then applied to the unshuffled dataset, with the convolutiona
 
 <p align="center">
 <em>
-ResNet-18, Frozen Convolutional Layers
-Unshuffled Subjects
-LR = 1e-3 | Weight Decay = 1e-4
-Train Accuracy = 76.7% | Validation Accuracy = 37.9%
+ResNet-18, Frozen Convolutional Layers  <br>
+Unshuffled Subjects  <br>
+LR = 1e-3 | Weight Decay = 1e-4  <br>
+Train Accuracy = 76.7% | Validation Accuracy = 37.9%  <br>
 </em>
 </p>
  
@@ -322,16 +322,16 @@ The convolutional layers were then unfrozen and a validation accuracy of 71.6% w
 
 <p align="center">
 <em>
-ResNet-18
-Unshuffled Subjects
-LR = 5e-4 | Weight Decay = 5e-2
-Train Accuracy = 99.7% | Validation Accuracy = 71.6%
+ResNet-18  <br>
+Unshuffled Subjects  <br>
+LR = 5e-4 | Weight Decay = 5e-2  <br>
+Train Accuracy = 99.7% | Validation Accuracy = 71.6%  <br>
 </em>
 </p>
  
  
  
-    Resnet-152, a version of ResNet with 152 layers instead of 18, was then tested to determine if the additional complexity provided by the extra layers is able to capture more information in the data.
+Resnet-152, a version of ResNet with 152 layers instead of 18, was then tested to determine if the additional complexity provided by the extra layers is able to capture more information in the data.
 
 <p align="center">
 <img src="docs/assets/resnet152_loss.png" width="300"> <img src="docs/assets/resnet152_accuracy.png" width="300">
@@ -339,10 +339,10 @@ Train Accuracy = 99.7% | Validation Accuracy = 71.6%
 
 <p align="center">
 <em>
-ResNet-152
-Unshuffled Subjects
-LR = 1e-3 | Weight Decay = 5e-3
-Train Accuracy = 99.7% | Validation Accuracy = 74.0%
+ResNet-152  <br>
+Unshuffled Subjects  <br>
+LR = 1e-3 | Weight Decay = 5e-3  <br>
+Train Accuracy = 99.7% | Validation Accuracy = 74.0%  <br>
 </em>
 </p>
  
@@ -367,10 +367,10 @@ EfficientNet-B4, an architecture with state-of-the-art performance on image clas
 
 <p align="center">
 <em>
-EfficientNet-B4
-Unshuffled Subjects
-LR = 1e-2 | Weight Decay = 2.5e-3
-Train Accuracy = 98.9% | Validation Accuracy = 77.3%
+EfficientNet-B4  <br>
+Unshuffled Subjects  <br>
+LR = 1e-2 | Weight Decay = 2.5e-3  <br>
+Train Accuracy = 98.9% | Validation Accuracy = 77.3%  <br>
 </em>
 </p>
  
