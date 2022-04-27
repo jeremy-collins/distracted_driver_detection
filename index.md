@@ -496,5 +496,4 @@ One other avenue for future work involves improving the types of machine learnin
 
 
 ## Video 
-<iframe width="560" height="315" src="https://youtu.be/jonQEx4riCE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jonQEx4riCE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
