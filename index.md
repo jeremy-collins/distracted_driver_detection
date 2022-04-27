@@ -271,7 +271,7 @@ Test F1:  2.42
 ResNet-18 was first evaluated on the shuffled dataset, and a validation accuracy of 98.5% was achieved.
 
 
-<img src="/distracted_driver_detection/docs/assets/resnet18_loss_shuffle.png" width="300"> <img src="/distracted_driver_detection/docs/assets/resnet18_accuracy_shuffle.png" width="300">
+<img src="docs/assets/resnet18_loss_shuffle.png" width="300"> <img src="docs/assets/resnet18_accuracy_shuffle.png" width="300">
 
 <p align="center">
 <em>
