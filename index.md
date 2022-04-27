@@ -36,8 +36,7 @@ subject 042, Drinking   |   subject 035, Reaching behind
 subject 052, Hair and makeup  |   subject 022, Talking to passenger
 
 The following is a distribution of all of the classes of images found in the dataset:
-
-<img alt="img-name" src="docs/assets/imagedistribution.png" width="300">  
+<img alt="img-name" src="docs/assets/imagedistribution.png">  
 
 
 
@@ -410,56 +409,51 @@ Although the overall accuracy of the binary image classifier is poor (64%), the 
  
 The following are the final accuracy and loss values after training the custom CNN model:
  
-</p>
 
 <p align="center">
-<img src="docs/assets/custom.png" width="600">
+<img src="docs/assets/custom.png">
 </p>
 
 Loss value of training (epochs vs. value): 
 
-</p>
+
 
  
 <p align="center">
-<img src="docs/assets/training.png" width="300">
+<img src="docs/assets/training.png">
 </p>
 
 Loss value of validation (epochs vs. value): 
 
 
-</p>
 
  
 <p align="center">
-<img src="docs/assets/validation.png" width="300">
+<img src="docs/assets/validation.png">
 </p>
 
 The following are the final accuracy and loss values after training the VGG16 model:
- 
-</p>
+
 
 <p align="center">
-<img src="docs/assets/vgg.png" width="600">
+<img src="docs/assets/vgg.png">
 </p>
  
 Loss value of training (epochs vs. value): 
 
-</p>
 
  
 <p align="center">
-<img src="docs/assets/vgg_training.png" width="300">
+<img src="docs/assets/vgg_training.png">
 </p>
 
 Loss value of validation (epochs vs. value): 
 
 
-</p>
 
  
 <p align="center">
-<img src="docs/assets/vgg_validation.png" width="300">
+<img src="docs/assets/vgg_validation.png">
 </p>
  
  
@@ -496,6 +490,7 @@ One other avenue for future work involves improving the types of machine learnin
 [7] K. He, X. Zhang, S. Ren and J. Sun, "Deep Residual Learning for Image Recognition," 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016, pp. 770-778, doi: 10.1109/CVPR.2016.90.
 
 [8] M. Tan and Q. V. Le, “Efficientnet: Rethinking model scaling for convolutional neural networks,” 2019. [Online]. Available: https://arxiv.org/abs/1905.11946
+
 
 
 
