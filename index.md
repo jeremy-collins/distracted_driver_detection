@@ -35,6 +35,9 @@ subject 042, Drinking   |   subject 035, Reaching behind
 :-------------------------:|:-------------------------:|
 subject 052, Hair and makeup  |   subject 022, Talking to passenger
 
+The following is a distribution of all of the classes of images found in the dataset:
+<img alt="img-name" src="docs/assets/imagedistribution.png" width="300">  
+
 
 
 
@@ -47,7 +50,7 @@ The processed dataset still has a very large number of features, so principal co
 
 A transformed set of features was then fit using the training data. For testing, the same transformation was applied to the testing set. The sklearn PCA library performs the normalization of the data, and because each feature is a pixel value, they are already on the same scale, and the input to PCA is thus well-formed.
 #### Autoencoder
-As an alternative to PCA, a convolutional autoencoder was used to compress the image and reduce the data to a lower dimension feature representation. The autoencoder consisted of an encoder and decoder, which each were composed of mirrored sequences of convolutional layers with leaky ReLU activation functions. The final layer in the encoder and first layer in the decoder consisted of a flattened dense layer that determined the number of features in the resulting encoded feature representation. At a vector length of 1000, the final autoencoder consisted of approximately 24.6 million parameters. 
+As an alternative to PCA, a convolutional autoencoder was used to compress the image and reduce the data to a lower-dimensional feature representation. The autoencoder consisted of an encoder and decoder, which were each composed of mirrored sequences of convolutional layers with leaky ReLU activation functions. The final layer in the encoder and first layer in the decoder consisted of a flattened dense layer that determined the number of features in the resulting encoded feature representation. At a vector length of 1000, the final autoencoder consisted of approximately 24.6 million parameters. 
 
 To improve the convergence of the autoencoder, the input images were normalized to a mean and standard deviation of (0.5, 0.5, 0.5). The autoencoder itself was trained using the Adam optimizer with a learning rate of 5e-4 and a batch size of 64 for 10 epochs. 
 #### K-means
@@ -57,11 +60,16 @@ A K-means model was used as an unsupervised clustering method. For a given numbe
 
 ### Supervised Methods
 #### Support Vector Machines
-For experiments with support vector machines, the unshuffled and shuffled dataset was trained and fitted with a linear SVM and a 3rd degree polynomial kernel. Brief experimentation was also done using a radial basis function (RBF) kernel. The dataset has been preprocessed to grayscale with edge detection. Once fitted, we classify the images in the testing set.
+For experiments with support vector machines, the unshuffled and shuffled dataset was trained and fitted with a linear SVM and a 3rd-degree polynomial kernel. Brief experimentation was also done using a radial basis function (RBF) kernel. The dataset has been preprocessed to grayscale with edge detection. Once fitted, we classify the images in the testing set.
 
 #### Convolutional Neural Networks
 
-Several architectures were implemented and evaluated in an attempt to classify the images. Our chosen architectures were ResNet, VGG16, EfficientNet-B4, and a custom CNN architecture. In order to prevent overfitting the data with such large models, several forms of regularization were used. The images were augmented by randomly changing the brightness, contrast, saturation, and hue of the image, and were randomly cropped and rotated. Additionally, a weight decay was introduced to punish the magnitude of the learned weights, and a dropout layer was added between the linear layers so that the model was not dependent on specific features, making it more robust and capable of generalization.
+Several architectures were implemented and evaluated in an attempt to classify the images. Our chosen architectures were ResNet, VGG16, EfficientNet-B4, and a custom CNN architecture. In order to prevent overfitting the data with such large models, several forms of regularization were used. The images were augmented by randomly changing the brightness, contrast, saturation, and hue of the image, and were randomly cropped and rotated. Additionally, a weight decay was introduced to punish the magnitude of the learned weights, and a dropout layer was added between the linear layers so that the model was not dependent on specific features, making it more robust and capable of generalization. 
+
+In terms of the design of the custom CNN model, we used 6 convolutional layers in total, with 1 max pooling layer and 1 GlobalAveragePooling layer in the middle. Total convolutional layers were extended from 8 to 512 filters. Before employing the fully connected layer, a dropout was utilized in conjunction with the Global average pooling layer. The amount of nodes in the final fully linked layer was set at ten, with the softmax activation algorithm enabled. All additional layers were activated using the ReLU function. To minimize dimensionality, a max pooling layer is applied. In addition to that, to reduce dimensionality and convert the matrix to a row vector, a Global Average Pooling layer was implemented. This is due to the fact that a completely linked layer can only receive row vectors. Dropout layers were integrated to prevent overfitting and to guarantee that it generalized properly. Finally, to derive prediction probabilities, the final fully connected layer featuring a softmax activation function was applied.
+
+In terms of the VGG16 model, we loaded it with its training weights but without the top fully connected layers. Then, on top of the GlobalAveragePooling layer, we added fully connected layers with dropout layers in between. Finally, on top of the model, we added three dense layers with dropout layers. 
+
 
 ## Results and Discussion
 #### PCA
@@ -89,14 +97,14 @@ A similar phenomenon occurs when using the autoencoder, as it also poorly genera
 
 ![](/distracted_driver_detection/docs/assets/autoencoder_shuffle.png)
 
-while an example of a reconstructed image when the data is not shuffle is shown here.
+while an example of a reconstructed image when the data is not shuffled is shown here.
 
 ![](/distracted_driver_detection/docs/assets/autoencoder_unshufffle.png)
 
-As with using PCA, the reconstructed images on the test dataset look qualitatively worse; they are much more blurry, and details relevant to the action taken such as the driver’s arm position and face orientation are difficult to perceive. Accordingly, the poor performance of the autoencoder can be attributed to the same causes that result in the poor performance of using PCA. The autoencoder has likely overfit to the training data, which contains images that differ in respects such as the color, camera angle, and general body position of each subject.
+As with using PCA, the reconstructed images on the test dataset look qualitatively worse; they are much more blurry, and details relevant to the action taken such as the driver’s arm position and face orientation are difficult to perceive. Accordingly, the poor performance of the autoencoder can be attributed to the same causes that result in the poor performance of using PCA. The autoencoder has likely overfit the training data, which contains images that differ in respects such as the color, camera angle, and general body position of each subject.
 
 #### K-means
-The differences from shuffling and not shuffling the subjects in the dataset also affect the performance of the k-means clustering. When the subjects are shuffled, and PCA is used to reduce the number of features, k-means with k=300 achieves a testing accuracy of nearly 90%.
+The differences between shuffling and not shuffling the subjects in the dataset also affect the performance of the k-means clustering. When the subjects are shuffled, and PCA is used to reduce the number of features, k-means with k=300 achieves a testing accuracy of nearly 90%.
 
 ![](/distracted_driver_detection/docs/assets/kmeans_elbow_shuffle.png)
 
@@ -252,8 +260,9 @@ Test F1 (Polynomial Kernel):  7.53
 For the test with the RBF kernel, the SVM was ran with the following hyperparameters:
 
 
-Gamma = 1.0
-C = 0.2
+*Gamma = 1.0*
+
+*C = 0.2*
 
 
 Gamma defines the influence of each training sample on the support vectors. It has an inverse relationship, the higher the gamma, the less influence of each sample. C is the regularization parameter.
@@ -271,7 +280,7 @@ Test F1:  2.42
 #### Convolutional Neural Networks
 
 
-ResNet-18 was first evaluated on the shuffled dataset, and a validation accuracy of 98.5% was achieved.
+ResNet-18 [7] was first evaluated on the *shuffled* dataset, and a validation accuracy of 98.5% was achieved.
 
 
 <p align="center">
@@ -330,7 +339,6 @@ Train Accuracy = 99.7% | Validation Accuracy = 71.6%  <br>
 </p>
  
  
- 
 Resnet-152, a version of ResNet with 152 layers instead of 18, was then tested to determine if the additional complexity provided by the extra layers is able to capture more information in the data.
 
 <p align="center">
@@ -359,7 +367,7 @@ Confusion matrix for unshuffled subjects
 </p>
  
  
-EfficientNet-B4, an architecture with state-of-the-art performance on image classification benchmarks such as ImageNet with only 19 million parameters, was chosen next, achieving a validation accuracy of 77.3%
+EfficientNet-B4, an architecture with state-of-the-art performance on image classification benchmarks such as ImageNet with only 19 million parameters [8], was chosen next, achieving a validation accuracy of 77.3%
 
 <p align="center">
 <img src="docs/assets/efnet_loss.png" width="300"> <img src="docs/assets/efnet_accuracy.png" width="300">
@@ -377,7 +385,84 @@ Train Accuracy = 98.9% | Validation Accuracy = 77.3%  <br>
  
  
  
+We then tested whether a convolutional network is able to solve a simpler problem - binary classification of safe and unsafe driving. Before training a ResNet-18 network to tackle this problem, we kept all data from the safe driving class and downsampled all other classes by 1/9 to keep the data balanced.
 
+<p align="center">
+<img src="docs/assets/binary_loss.png" width="300"> <img src="docs/assets/binary_accuracy.png" width="300">
+</p>
+
+<p align="center">
+<em>
+ResNet-18  <br>
+Binary Classification <br>
+Unshuffled Subjects  <br>
+LR = 5e-4 | Weight Decay = 5e-2  <br>
+Train Accuracy = 97.4% | Validation Accuracy = 63.6%  <br>
+</em>
+</p>
+
+<p align="center">
+<img src="docs/assets/binary_confusion.png">
+</p>
+ 
+Although the overall accuracy of the binary image classifier is poor (64%), the true negative rate is very high (96%) and the false-negative rate is very low (4%), meaning that if a driver is driving unsafely, the model is very likely to detect it. So, the model may qualify as acceptable for driver safety applications, although users may be inconvenienced by the high false-positive rate.
+ 
+The following are the final accuracy and loss values after training the custom CNN model:
+ 
+</p>
+
+<p align="center">
+<img src="docs/assets/custom.png">
+</p>
+
+Loss value of training (epochs vs. value): 
+
+</p>
+
+ 
+<p align="center">
+<img src="docs/assets/training.png">
+</p>
+
+Loss value of validation (epochs vs. value): 
+
+
+</p>
+
+ 
+<p align="center">
+<img src="docs/assets/validation.png">
+</p>
+
+The following are the final accuracy and loss values after training the VGG16 model:
+ 
+</p>
+
+<p align="center">
+<img src="docs/assets/vgg.png">
+</p>
+ 
+Loss value of training (epochs vs. value): 
+
+</p>
+
+ 
+<p align="center">
+<img src="docs/assets/vgg_training.png">
+</p>
+
+Loss value of validation (epochs vs. value): 
+
+
+</p>
+
+ 
+<p align="center">
+<img src="docs/assets/vgg_validation.png">
+</p>
+ 
+ 
+ 
  
 ## Conclusion
 This project aimed to develop machine learning models to identify distracted driving behavior. Such a tool could be used as part of a system that monitors drivers and preemptively warns them if they are being distracted, keeping their focus on the road and improving their safety. The dataset itself consisted of still images of a number of subjects performing one of ten actions while driving. One category included drivers focused on the road, while the other nine were considered distracted driving behaviors. A number of unsupervised and supervised methods were tested in an attempt to classify each image against one of the ten labels. Notably, splitting the dataset into training and testing involved a decision on whether or not to shuffle it beforehand. If it were shuffled, then the training and testing set would contain a mix of all of the subjects present in the dataset. Otherwise, the training and testing set would contain distinct subjects. Testing the models’ performance on this unshuffled dataset would be more informative, because it would demonstrate the model’s ability to generalize well for unknown subjects. Realistically, this would be required of a driver monitoring system, which would be trained on an existing dataset and then used on a newer, potentially more varied population in commercial use.
@@ -386,27 +471,13 @@ This project aimed to develop machine learning models to identify distracted dri
 Overall, the CNN model performed the best, achieving a test accuracy of around 77%. All other models saw much worse performance, with no other model reaching an accuracy above 20%. When subjects are withheld from the training data, the overall poor performance of many of the methods suggests that the models are overfitting and failing to generalize to new subjects. This reasoning is supported by the fact that the dataset itself only has fewer than 70 unique subjects, so new subjects in the testing set likely introduce new shapes and features that would cause the model to perform poorly.
 
 
-Similar results were observed in the supervised methods, with both SVM and CNNs achieving a 99% validation accuracy on the shuffled dataset, but performing significantly worse on the unshuffled dataset. This can again be attributed to the lack of test subjects. Although large CNN models such as ResNet-152 were certainly able to capture and characterize the complexity of the dataset, they were not able to successfully generalize to a satisfactory level.
+Similar results were observed in the supervised methods, with both SVM and CNNs achieving a 99% validation accuracy on the shuffled dataset, but performing significantly worse on the unshuffled dataset. This can again be attributed to the lack of test subjects. Although large CNN models such as ResNet-152 were certainly able to capture the complexity of the dataset, they were not able to successfully generalize to a satisfactory level. Similar observations can be made about binary driver safety classification, although it is not known whether this shortcoming is a result of less training data than the original 10-class classification problem.
 
 
 One main area of future work involves developing methods that allow the models to generalize well to unseen subjects. This issue may involve extracting subject-agnostic features from the images prior to performing clustering or classification. This may be accomplished by extracting relevant features of the images via unsupervised segmentation or a pre-trained neural network performing semantic segmentation. Additionally, improving the dataset by expanding it to include a wider breadth of subjects may improve performance. This also mitigates any potential biases on specific populations of people that could arise from a limited dataset such as the one used in this project.
 
 
 One other avenue for future work involves improving the types of machine learning models used. Because behaviors involve a temporal component, models that can reason temporally using a series of images or video data may be more suitable to this particular application. Other methods may incorporate multiple modes of data, such as incorporating data from the driver’s phone.
-
-
-Restate questions from introduction 
-Restate important results 
-Generalization is hard
-Augmentation is good
-Regularization is good
-Unsupervised doesn’t work as well
-Dataset is just as important as the method
-Classes are very complex/nuanced
-Include any recommendations for additional data as needed // future direction for the project 
-Binary classification (safe driving vs not safe driving) 
-
-
 
 ## References
 [1] S. Coleman, “Distracted driving statistics 2022,” Bankrate, 07-Sep-2021. [Online]. Available: https://www.bankrate.com/insurance/car/distracted-driving-statistics/. [Accessed: 24-Feb-2022].
@@ -420,6 +491,10 @@ Binary classification (safe driving vs not safe driving)
 [5] D. Feng and Y. Yue, “Machine Learning Techniques for Distracted Driver Detection,” CS 229: Machine Learning, 2019. [Online]. Available: http://cs229.stanford.edu/proj2019spr/report/24.pdf. [Accessed: 23-Feb-2022].
 
 [6] M. H. Alkinani, W. Z. Khan and Q. Arshad, “Detecting Human Driver Inattentive and Aggressive Driving Behavior Using Deep Learning: Recent Advances, Requirements and Open Challenges,” in IEEE Access, vol. 8, pp. 105008-105030, 2020, doi: 10.1109/ACCESS.2020.2999829.
+
+[7] K. He, X. Zhang, S. Ren and J. Sun, "Deep Residual Learning for Image Recognition," 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016, pp. 770-778, doi: 10.1109/CVPR.2016.90.
+
+[8] M. Tan and Q. V. Le, “Efficientnet: Rethinking model scaling for convolutional neural networks,” 2019. [Online]. Available: https://arxiv.org/abs/1905.11946
 
 
 
