@@ -413,7 +413,7 @@ The following are the final accuracy and loss values after training the custom C
 </p>
 
 <p align="center">
-<img src="docs/assets/custom.png" width="300">
+<img src="docs/assets/custom.png" width="600">
 </p>
 
 Loss value of training (epochs vs. value): 
@@ -440,7 +440,7 @@ The following are the final accuracy and loss values after training the VGG16 mo
 </p>
 
 <p align="center">
-<img src="docs/assets/vgg.png" width="300">
+<img src="docs/assets/vgg.png" width="600">
 </p>
  
 Loss value of training (epochs vs. value): 
