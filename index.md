@@ -413,7 +413,7 @@ The following are the final accuracy and loss values after training the custom C
 </p>
 
 <p align="center">
-<img src="docs/assets/custom.png">
+<img src="docs/assets/custom.png" width="300">
 </p>
 
 Loss value of training (epochs vs. value): 
@@ -422,7 +422,7 @@ Loss value of training (epochs vs. value):
 
  
 <p align="center">
-<img src="docs/assets/training.png">
+<img src="docs/assets/training.png" width="300">
 </p>
 
 Loss value of validation (epochs vs. value): 
@@ -432,7 +432,7 @@ Loss value of validation (epochs vs. value):
 
  
 <p align="center">
-<img src="docs/assets/validation.png">
+<img src="docs/assets/validation.png" width="300">
 </p>
 
 The following are the final accuracy and loss values after training the VGG16 model:
@@ -440,7 +440,7 @@ The following are the final accuracy and loss values after training the VGG16 mo
 </p>
 
 <p align="center">
-<img src="docs/assets/vgg.png">
+<img src="docs/assets/vgg.png" width="300">
 </p>
  
 Loss value of training (epochs vs. value): 
@@ -449,7 +449,7 @@ Loss value of training (epochs vs. value):
 
  
 <p align="center">
-<img src="docs/assets/vgg_training.png">
+<img src="docs/assets/vgg_training.png" width="300">
 </p>
 
 Loss value of validation (epochs vs. value): 
@@ -459,7 +459,7 @@ Loss value of validation (epochs vs. value):
 
  
 <p align="center">
-<img src="docs/assets/vgg_validation.png">
+<img src="docs/assets/vgg_validation.png" width="300">
 </p>
  
  
