@@ -18,13 +18,10 @@ class MyResNet18(nn.Module):
         self.fc_layers = None
         self.loss_criterion = None
 
-        ############################################################################
-        # Student code begin
-        ############################################################################
-
         # model = resnet18(pretrained=True)
-        # model = torch.hub.load('pytorch/vision:v0.10.0', 'resnext50_32x4d', pretrained=True)
-        model = efficientnet_b4( pretrained=True)
+        # model = efficientnet_b4( pretrained=True)
+        model = resnet152(pretrained=True)
+
         
         # print(list(model.children()))
         
@@ -34,8 +31,9 @@ class MyResNet18(nn.Module):
         
         self.fc_layers = nn.Sequential(
             # nn.Linear(512, 100),
-            # nn.Linear(2048, 100),
-            nn.Linear(1792, 128),
+            nn.Linear(2048, 128),
+            # nn.Linear(1792, 128),
+
 
             # nn.ReLU(),
             # nn.Dropout(0.5),
@@ -50,10 +48,6 @@ class MyResNet18(nn.Module):
         # for param in self.conv_layers.parameters():
         #     param.requires_grad = False
         
-        ############################################################################
-        # Student code end
-        ############################################################################
-
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """Perform the forward pass with the net, duplicating grayscale channel to 3-channel.
 
@@ -65,21 +59,16 @@ class MyResNet18(nn.Module):
         """
         model_output = None
         # x = x.repeat(1, 3, 1, 1)  # as ResNet accepts 3-channel color images
-        ############################################################################
-        # Student code begin
-        ############################################################################
         
         o = self.conv_layers(x)
         
         # print("network output 1: ", o.size())
         
         # model_output = self.fc_layers(o.reshape(-1, 512))
-        # model_output = self.fc_layers(o.reshape(-1, 2048))
-        model_output = self.fc_layers(o.reshape(-1, 1792))
+        model_output = self.fc_layers(o.reshape(-1, 2048))
+        # model_output = self.fc_layers(o.reshape(-1, 1792))
+
 
         # print("network output 2: ", model_output.size())
 
-        ############################################################################
-        # Student code end
-        ############################################################################
         return model_output

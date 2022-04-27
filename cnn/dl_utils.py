@@ -26,17 +26,9 @@ def compute_accuracy(logits: torch.Tensor, labels: torch.Tensor) -> float:
         accuracy: The accuracy of the predicted logits
                    (number of correct predictions / total number of examples)
     """
-    batch_accuracy = 0.0
-    ############################################################################
-    # Student code begin
-    ############################################################################
 
     pred = torch.argmax(logits, axis=1)
     batch_accuracy = torch.sum(pred == labels).item() / labels.numel()
-
-    ############################################################################
-    # Student code end
-    ############################################################################
 
     return batch_accuracy
 
@@ -58,11 +50,6 @@ def compute_loss(
     Returns:
     -   the loss value
     """
-    loss = None
-
-    ############################################################################
-    # Student code begin
-    ############################################################################
     
     if target_labels.dim() == 1:
         loss_function = nn.CrossEntropyLoss()
@@ -77,10 +64,6 @@ def compute_loss(
     # if is_normalize:
     #     loss = loss / model_output.size()[0]
     
-    ############################################################################
-    # Student code end
-    ############################################################################
-
     return loss
 
 def compute_multilabel_accuracy(logits: torch.Tensor, labels: torch.Tensor) -> float:
@@ -97,20 +80,10 @@ def compute_multilabel_accuracy(logits: torch.Tensor, labels: torch.Tensor) -> f
         accuracy: The accuracy of the predicted logits
                   (number of correct predictions / total number of labels)
     """
-    batch_accuracy = 0.0
-    ############################################################################
-    # Student code begin
-    ############################################################################
 
     binary_pred = torch.round(logits) # shape is (batch_size, num_labels)
-
     batch_accuracy = torch.sum(torch.eq(binary_pred, labels).to(torch.int32)) / labels.numel()
-    
     batch_accuracy = batch_accuracy.item()
-
-    ############################################################################
-    # Student code end
-    ############################################################################
 
     return batch_accuracy
 

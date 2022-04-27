@@ -12,6 +12,7 @@ import torchvision
 from PIL import Image
 import csv
 import pandas as pd
+import numpy as np
 
 
 class ImageLoader(data.Dataset):
@@ -19,6 +20,10 @@ class ImageLoader(data.Dataset):
 
     train_folder = "train"
     test_folder = "test"
+    # train_folder = "shuffled_train"
+    # test_folder = "shuffled_test"
+    # train_folder = "binary_train"
+    # test_folder = "binary_test"
 
     def __init__(
         self,
@@ -70,13 +75,12 @@ class ImageLoader(data.Dataset):
 
         img_paths = []  # a list of (filename, class index)
 
-        ############################################################################
-        # Student code begin
-        ############################################################################
-        
         self.img_names = self.df['img']
         self.classes = self.df['classname']
         
+        # binary classification
+        # self.classes = self.classes.apply(lambda x: "c1" if int(x[-1]) > 0 else "c0")
+
         img_dict = dict(zip(self.img_names, self.classes))
         
 
@@ -96,10 +100,6 @@ class ImageLoader(data.Dataset):
         # print(img_paths)
         
         
-        ############################################################################
-        # Student code end
-        ############################################################################
-
         return img_paths
 
     def get_classes(self) -> Dict[str, int]:
@@ -118,19 +118,12 @@ class ImageLoader(data.Dataset):
         """
 
         classes = dict()
-        ############################################################################
-        # Student code begin
-        ############################################################################
-
         # folder_names = os.listdir(self.curr_folder)
         # folder_names = sorted(folder_names)
         # classes = {os.path.basename(folder_names[i]):i for i in range(len(folder_names))}
         
         classes = {str(i):i for i in range(10)}
         
-        ############################################################################
-        # Student code end
-        ############################################################################
         return classes
 
     def load_img_from_path(self, path: str) -> Image:
@@ -146,19 +139,12 @@ class ImageLoader(data.Dataset):
         """
 
         img = None
-        ############################################################################
-        # Student code begin
-        ############################################################################
-
         # img = Image.open(path).convert('L')
         img = Image.open(path)
 
         width, height = img.size # (480, 640)
         img = img.resize((width // 2, height // 2))
         
-        ############################################################################
-        # Student code end
-        ############################################################################
         return img
 
     def __getitem__(self, index: int) -> Tuple[torch.Tensor, int]:
@@ -180,9 +166,6 @@ class ImageLoader(data.Dataset):
         img = None
         class_idx = None
 
-        ############################################################################
-        # Student code start
-        ############################################################################
         # self.dataset = [(filepath, class_idx)]
         
         img = self.load_img_from_path(self.dataset[index][0])
@@ -190,9 +173,6 @@ class ImageLoader(data.Dataset):
         
         img = self.transform(img)
 
-        ############################################################################
-        # Student code end
-        ############################################################################
         return img, class_idx
 
     def __len__(self) -> int:
@@ -202,15 +182,6 @@ class ImageLoader(data.Dataset):
             l: length of the dataset
         """
 
-        l = 0
-
-        ############################################################################
-        # Student code start
-        ############################################################################
-
         l = len(self.dataset)
                 
-        ############################################################################
-        # Student code end
-        ############################################################################
         return l

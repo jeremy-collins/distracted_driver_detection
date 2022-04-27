@@ -26,10 +26,6 @@ def compute_mean_and_std(dir_name: str) -> Tuple[float, float]:
     mean = None
     std = None
 
-    ############################################################################
-    # Student code begin
-    ############################################################################
-
     # folder_list = os.listdir(dir_name)
     # means = np.array([])
     # stdevs = np.array([])
@@ -80,7 +76,4 @@ def compute_mean_and_std(dir_name: str) -> Tuple[float, float]:
     # std is 0.51483374
     print("standard deviation: ", std)
     
-    ############################################################################
-    # Student code end
-    ############################################################################
     return mean[0], std[0]

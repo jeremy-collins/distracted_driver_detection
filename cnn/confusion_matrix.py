@@ -40,11 +40,12 @@ def generate_confusion_data(
     class_labels = [""] * len(label_to_idx)
 
     model.eval()
-    ##########################################################################
-    # Student code begins here
-    ##########################################################################
+
     # class_idx = self.dataset[index][1]
     # x: the input image [Dim: (N,C,H,W)]
+    
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
     x = np.array([])
     targets = np.array([], dtype=np.int32)
     preds = np.array([], dtype=np.int32)
@@ -53,9 +54,12 @@ def generate_confusion_data(
         # print(sample[0].size()) # inputs?
         # print(sample[1]) # labels?
         x = sample[0]
+        x = x.to(device)
         target = sample[1]
         logit = model.forward(x)
+        logit = logit.to(device)
         pred = torch.argmax(logit, axis=1)
+        pred = pred.cpu()
         
         targets = np.append(targets, target)
         preds = np.append(preds, pred)
@@ -64,9 +68,6 @@ def generate_confusion_data(
     preds = torch.tensor(preds)
     class_labels = list(label_to_idx.keys())
     
-    ##########################################################################
-    # Student code ends here
-    ##########################################################################
     model.train()
 
     return targets.cpu().numpy(), preds.cpu().numpy(), class_labels
@@ -109,26 +110,12 @@ def generate_confusion_matrix(
     confusion_matrix = np.zeros((num_classes, num_classes))
 
     for target, prediction in zip(targets, preds):
-        ##########################################################################
-        # Student code begins here
-        ##########################################################################
-    
         confusion_matrix[target][prediction] += 1
         
-        ##########################################################################
-        # Student code ends here
-        ##########################################################################
 
     if normalize:
-        ##########################################################################
-        # Student code begins here
-        ##########################################################################
-    
         confusion_matrix = confusion_matrix / np.sum(confusion_matrix, axis=1, keepdims=True)
-    
-        ##########################################################################
-        # Student code ends here
-        ##########################################################################
+
     return confusion_matrix
 
 
@@ -278,9 +265,6 @@ def generate_accuracy_data(
     targets = np.zeros((len(dataset), num_attributes)).astype(np.int32)
 
     model.eval()
-    ##########################################################################
-    # Student code begins here
-    ##########################################################################
 
     x = np.array([])
     targets = np.array([], dtype=np.int32)
@@ -307,9 +291,6 @@ def generate_accuracy_data(
     targets = torch.tensor(targets)
     preds = torch.tensor(preds)
 
-    ##########################################################################
-    # Student code ends here
-    ##########################################################################
     model.train()
 
     return targets.cpu().numpy(), preds.cpu().numpy()
@@ -350,19 +331,12 @@ def generate_accuracy_table(
 
     accuracy_table = np.zeros(num_attributes)
 
-    ##########################################################################
-    # Student code begins here
-    ##########################################################################
     eq = np.equal(preds, targets).astype("int32")
     np.reshape(eq, targets.shape)
     
     accuracy_table = np.sum(eq, axis=0, keepdims=True) / targets.shape[0]
     accuracy_table = accuracy_table.flatten()
     
-    ##########################################################################
-    # Student code ends here
-    ##########################################################################
-
     return accuracy_table
 
 
