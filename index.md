@@ -156,7 +156,8 @@ Again, similar poor performance is seen when the autoencoder is used instead of 
  
 #### Support Vector Machines
 
-Linear
+**Linear**
+
 The linear SVM was set to solve for primal optimization for both shuffled and unshuffled data. Training takes around four minutes in our machine. Below is the confusion matrix, accuracy and F1 score for shuffled data:
 
 Training data:
@@ -202,7 +203,8 @@ Test F1 (Linear):  12.87
 The training accuracy is still very good, but the test accuracy is no better than random guessing. This indicates that the model still has problems generalizing to new subjects. We experimented with regularization by changing the C hyperparameter, but the results are similar.
 
 
-3rd Degree Polynomial
+**3rd Degree Polynomial**
+
 Training with the polynomial kernel takes about 20 minutes. No regularization was used. Below is the confusion matrix, accuracy and F1 score for shuffled data:
 
 Training data:
@@ -245,7 +247,8 @@ Test Accuracy (Polynomial Kernel):  13.56
 Test F1 (Polynomial Kernel):  7.53
 
 
-Radial Basis Function (RBF)
+**Radial Basis Function (RBF)**
+
 For the test with the RBF kernel, the SVM was ran with the following hyperparameters:
 
 
@@ -304,10 +307,10 @@ The same model was then applied to the unshuffled dataset, with the convolutiona
 
 <p align="center">
 <em>
-ResNet-18, Frozen Convolutional Layers
-Unshuffled Subjects
-LR = 1e-3 | Weight Decay = 1e-4
-Train Accuracy = 76.7% | Validation Accuracy = 37.9%
+ResNet-18, Frozen Convolutional Layers  <br>
+Unshuffled Subjects  <br>
+LR = 1e-3 | Weight Decay = 1e-4  <br>
+Train Accuracy = 76.7% | Validation Accuracy = 37.9%  <br>
 </em>
 </p>
  
@@ -319,16 +322,16 @@ The convolutional layers were then unfrozen and a validation accuracy of 71.6% w
 
 <p align="center">
 <em>
-ResNet-18
-Unshuffled Subjects
-LR = 5e-4 | Weight Decay = 5e-2
-Train Accuracy = 99.7% | Validation Accuracy = 71.6%
+ResNet-18  <br>
+Unshuffled Subjects  <br>
+LR = 5e-4 | Weight Decay = 5e-2  <br>
+Train Accuracy = 99.7% | Validation Accuracy = 71.6%  <br>
 </em>
 </p>
  
  
  
-    Resnet-152, a version of ResNet with 152 layers instead of 18, was then tested to determine if the additional complexity provided by the extra layers is able to capture more information in the data.
+Resnet-152, a version of ResNet with 152 layers instead of 18, was then tested to determine if the additional complexity provided by the extra layers is able to capture more information in the data.
 
 <p align="center">
 <img src="docs/assets/resnet152_loss.png" width="300"> <img src="docs/assets/resnet152_accuracy.png" width="300">
@@ -336,10 +339,10 @@ Train Accuracy = 99.7% | Validation Accuracy = 71.6%
 
 <p align="center">
 <em>
-ResNet-152
-Unshuffled Subjects
-LR = 1e-3 | Weight Decay = 5e-3
-Train Accuracy = 99.7% | Validation Accuracy = 74.0%
+ResNet-152  <br>
+Unshuffled Subjects  <br>
+LR = 1e-3 | Weight Decay = 5e-3  <br>
+Train Accuracy = 99.7% | Validation Accuracy = 74.0%  <br>
 </em>
 </p>
  
@@ -364,10 +367,10 @@ EfficientNet-B4, an architecture with state-of-the-art performance on image clas
 
 <p align="center">
 <em>
-EfficientNet-B4
-Unshuffled Subjects
-LR = 1e-2 | Weight Decay = 2.5e-3
-Train Accuracy = 98.9% | Validation Accuracy = 77.3%
+EfficientNet-B4  <br>
+Unshuffled Subjects  <br>
+LR = 1e-2 | Weight Decay = 2.5e-3  <br>
+Train Accuracy = 98.9% | Validation Accuracy = 77.3%  <br>
 </em>
 </p>
  
