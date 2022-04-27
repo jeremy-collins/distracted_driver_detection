@@ -271,7 +271,9 @@ Test F1:  2.42
 ResNet-18 was first evaluated on the shuffled dataset, and a validation accuracy of 98.5% was achieved.
 
 
+<p align="center">
 <img src="docs/assets/resnet18_loss_shuffle.png" width="300"> <img src="docs/assets/resnet18_accuracy_shuffle.png" width="300">
+</p>
 
 <p align="center">
 <em>
@@ -284,7 +286,9 @@ Train Accuracy = 99.6% | Validation Accuracy = 98.5% <br>
 
  
 
-![](/distracted_driver_detection/docs/assets/resnet18_confusion_shuffle.png)
+<p align="center">
+<img src="docs/assets/resnet18_confusion_shuffle.png">
+</p>
 
 <p align="center">
 <em>
@@ -354,6 +358,18 @@ Binary classification (safe driving vs not safe driving)
 
 
 
+## References
+[1] S. Coleman, “Distracted driving statistics 2022,” Bankrate, 07-Sep-2021. [Online]. Available: https://www.bankrate.com/insurance/car/distracted-driving-statistics/. [Accessed: 24-Feb-2022].
+
+[2] J. Wang, Z. Wu, F. Li, and J. Zhang, “A Data Augmentation Approach to Distracted Driving Detection,” Future Internet, vol. 13, no. 1, p. 1, Dec. 2020, doi: 10.3390/fi13010001.
+
+[3] Rao, X., Lin, F., Chen, Z. et al. Distracted driving recognition method based on deep convolutional neural network. J Ambient Intell Human Comput 12, 193–200 (2021). https://doi.org/10.1007/s12652-019-01597-4
+
+[4] State Farm Distracted Driver Detection, Kaggle, 2016. Accessed on: Feb. 24, 2022. [Online]. Available: https://www.kaggle.com/c/state-farm-distracted-driver-detection/overview
+
+[5] D. Feng and Y. Yue, “Machine Learning Techniques for Distracted Driver Detection,” CS 229: Machine Learning, 2019. [Online]. Available: http://cs229.stanford.edu/proj2019spr/report/24.pdf. [Accessed: 23-Feb-2022].
+
+[6] M. H. Alkinani, W. Z. Khan and Q. Arshad, “Detecting Human Driver Inattentive and Aggressive Driving Behavior Using Deep Learning: Recent Advances, Requirements and Open Challenges,” in IEEE Access, vol. 8, pp. 105008-105030, 2020, doi: 10.1109/ACCESS.2020.2999829.
 
 
 
