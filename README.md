@@ -490,10 +490,3 @@ One other avenue for future work involves improving the types of machine learnin
 [7] K. He, X. Zhang, S. Ren and J. Sun, "Deep Residual Learning for Image Recognition," 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016, pp. 770-778, doi: 10.1109/CVPR.2016.90.
 
 [8] M. Tan and Q. V. Le, “Efficientnet: Rethinking model scaling for convolutional neural networks,” 2019. [Online]. Available: https://arxiv.org/abs/1905.11946
-
-
-
-
-
-## Video 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jonQEx4riCE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
