@@ -18,9 +18,9 @@ class MyResNet18(nn.Module):
         self.fc_layers = None
         self.loss_criterion = None
 
-        # model = resnet18(pretrained=True)
-        # model = efficientnet_b4( pretrained=True)
-        model = resnet152(pretrained=True)
+        model = resnet18(pretrained=True)
+        # model = efficientnet_b4(pretrained=True)
+        # model = resnet152(pretrained=True)
 
         
         # print(list(model.children()))
@@ -30,8 +30,8 @@ class MyResNet18(nn.Module):
             )
         
         self.fc_layers = nn.Sequential(
-            # nn.Linear(512, 100),
-            nn.Linear(2048, 128),
+            nn.Linear(512, 128),
+            # nn.Linear(2048, 128),
             # nn.Linear(1792, 128),
 
 
@@ -64,8 +64,8 @@ class MyResNet18(nn.Module):
         
         # print("network output 1: ", o.size())
         
-        # model_output = self.fc_layers(o.reshape(-1, 512))
-        model_output = self.fc_layers(o.reshape(-1, 2048))
+        model_output = self.fc_layers(o.reshape(-1, 512))
+        # model_output = self.fc_layers(o.reshape(-1, 2048))
         # model_output = self.fc_layers(o.reshape(-1, 1792))
 
 
