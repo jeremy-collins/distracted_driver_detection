@@ -1,8 +1,8 @@
 # Distracted Driver Detection
+Jeremy Collins, Alan Hesu, Kin Man Lee, Shruthi Saravanan, Dhrumin Shah
 
 https://user-images.githubusercontent.com/47015212/169717481-4a5db7ea-659d-44ee-a8c0-e33d2166d0ae.mp4
 
-Jeremy Collins, Alan Hesu, Kin Man Lee, Shruthi Saravanan, Dhrumin Shah
 ## Introduction
 Distracted driving causes about 920,000 total accidents in the US per year according to the National Highway Transportation and Safety Administration (NHTSA) [1]. Experts in the fields of traffic safety and public health all concur that this is an underestimation of the dangers of distracted driving.
 
